@@ -41,9 +41,17 @@ DEFAULT_APPS = [
 LOCAL_APPS = [
     "apps.accounts",
     "apps.core",
+    "apps.project",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -116,6 +124,8 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # ==============================================================================
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+SITE_ID = 1
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
@@ -131,9 +141,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-STATIC_ROOT = BASE_DIR.parent / "static"  # stores static files outside the git project
+# STATIC_ROOT = BASE_DIR.parent / "static"  # stores static files outside the git project
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR.parent / "static"]
 
 # ==============================================================================
 # MEDIA FILES SETTINGS
@@ -146,6 +156,9 @@ MEDIA_ROOT = BASE_DIR.parent / "media"  # stores media outside the git project
 # ==============================================================================
 # THIRD-PARTY SETTINGS
 # ==============================================================================
+#allauth settings
+LOGIN_REDIRECT_URL = 'core:home'
+ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/' 
 
 
 # ==============================================================================
