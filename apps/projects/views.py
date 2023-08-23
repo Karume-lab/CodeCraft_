@@ -67,7 +67,7 @@ class TaskCreateView(CreateView):
     form_class = TaskForm
 
 class TaskCreateView(CreateView):
-    template_name = 'projects/tasks/create_task.html'
+    template_name = 'projects/tasks/create.html'
     model = TaskModel
     form_class = TaskForm
 
