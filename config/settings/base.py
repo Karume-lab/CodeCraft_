@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
 from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
@@ -46,6 +45,8 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'crispy_forms',
+    'bootstrap4',
+    'crispy_bootstrap4',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -160,6 +161,8 @@ MEDIA_ROOT = BASE_DIR.parent / "media"  # stores media outside the git project
 LOGIN_REDIRECT_URL = 'core:home'
 ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/' 
 
+#crispy forms
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # ==============================================================================
 # FIRST-PARTY SETTINGS

@@ -1,9 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-{% block title %}Project Detail{% endblock title %}
+{% block title %}{{project.title}}{% endblock title %}
 
 {% block body %}
 <p>{{project.user}}</p>
 <p>{{project.title}}</p>
 <p>{{project.description}}</p>
+{% for task in  project.tasks.all %}
+	<ul>
+		<li>{{task.description}}</li>
+		<a 
+			href="{% url 'projects:edit_task' task.slug task.date_created.year task.date_created.month task.date_created.day %}">
+			Edit
+		</a>
+		<a 
+			href="{% url 'projects:delete_task' task.slug task.date_created.year task.date_created.month task.date_created.day %}">
+			Delete
+		</a>
+	</ul>
+{% endfor %}
+<a 
+	href="{% url 'projects:create_task' project.slug project.date_created.year project.date_created.month project.date_created.day %}">
+	Add Tasks
+</a>
+
 {% endblock body %}
