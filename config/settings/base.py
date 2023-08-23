@@ -41,7 +41,7 @@ DEFAULT_APPS = [
 LOCAL_APPS = [
     "apps.accounts",
     "apps.core",
-    "apps.project",
+    "apps.projects",
 ]
 
 THIRD_PARTY_APPS = [

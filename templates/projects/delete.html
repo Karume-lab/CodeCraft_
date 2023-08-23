@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Unit{% endblock title %}
+{% block body %}
+	<form method="post">
+		{% csrf_token %}
+		<h1>Are you sure you want to delete <em>{{project.title}}</em> ?</h1>
+		<p>Once done, this action cannot be reversed.</p>
+		<a href="{% url 'projects:list' %}">Cancel</a>
+		<button type="submit">Yes</button>
+	</form>
+
+{% endblock body %}

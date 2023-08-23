@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock title %}
+
+{% block body %}
+<p>These are the projects</p>
+{% for project in projects %}
+	<p>{{project.user}}</p>
+	<a href="{{project.get_absolute_url}}">{{project}}</a>
+	<p>{{project.description}}</p>
+	<a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}">Edit</a>
+	<a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}">Delete</a>
+	<hr>
+{% endfor %}
+{% endblock body %}
