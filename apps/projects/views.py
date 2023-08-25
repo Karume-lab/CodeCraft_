@@ -1,6 +1,7 @@
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
 from django.utils.text import slugify
+from datetime import date
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
 from .models import ProjectModel, TaskModel, SubTaskModel
 from .forms import ProjectForm, TaskForm, SubTaskForm
@@ -34,6 +35,7 @@ class ProjectUpdateView(UpdateView):
     template_name = 'projects/edit.html'
     model = ProjectModel
     form_class = ProjectForm
+    context_object_name = 'project'
     success_url = reverse_lazy('projects:list')
 
 class ProjectDeleteView(DeleteView):
@@ -44,8 +46,21 @@ class ProjectDeleteView(DeleteView):
 
 class ProjectsListView(ListView):
     template_name = 'projects/list.html'
-    model = ProjectModel
+    queryset = ProjectModel.objects.all()
     context_object_name = 'projects'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        filter_by = self.request.GET.get('filter_by')
+
+        if filter_by == 'today':
+            queryset = queryset.filter(date_due__day=date.today().day)
+        elif filter_by == 'this_week':
+            queryset = queryset.filter(date_due__week=date.today().isocalendar()[1])
+        elif filter_by == 'my_month':
+            queryset = queryset.filter(date_due__month=date.today().month)
+
+        return queryset
 
 class ProjectDetailView(DetailView):
     template_name = 'projects/detail.html'
