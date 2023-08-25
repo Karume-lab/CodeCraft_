@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A Programmer's ideal Planner" />
+    <meta name="author" content="" />
+    {% include 'pre_login_base/dependancies/css.html' %}
+  </head>
+  <title>CodeCraft | {% block title %} {% endblock title %}</title>
+  <body>
+    {% include 'pre_login_base/components/header.html' %}
+    {% block body %} {% endblock body %}
+    {% include 'pre_login_base/components/footer.html' %}
+    {% include 'pre_login_base/dependancies/js.html' %}
+  </body>
+</html>
