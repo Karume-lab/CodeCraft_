@@ -4,12 +4,9 @@
 {% block title %}Welcome{% endblock title %}
 {% block body %}
 <!-- Navigation-->
-<nav class="navbar navbar-light bg-light static-top">
-	<div class="container">
-		<a class="navbar-brand" href="#!">CodeCraft</a>
-	</div>
+<nav class="navbar navbar-light bg-light static-top p-2">
 	<!-- Favicon-->
-	<img style="width: 150px; aspect-ratio: 1/1;" src="{% static 'landing-page/img/logo.jpeg' %}" />
+	<a href="{% url 'core:index' %}"><img style="aspect-ratio: 3/2; width: 100px;" src="{% static 'landing-page/img/logo.jpeg' %}" /></a>
 </nav>
 <!-- Masthead-->
 <header class="masthead">
