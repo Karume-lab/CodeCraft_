@@ -1,0 +1,32 @@
+{% extends 'post_login_base/base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock title %}
+{% block content %}
+RESULTS:
+{% for project in project_results %}
+	<div class="col-lg-6">
+		<div class="card_container">
+			<div class="card">
+				<div class="card-body">
+					<a href="{{project.get_absolute_url}}"><h4 class="card-title">{{project}}</h4></a>
+					<time>{{project.date_due}}</time>
+					<p class="card-text">{{project.description}}</p>
+				</div>
+				{% for task in project.tasks.all %}
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">&#9744; {{task.description}}</li>
+					</ul>
+				{% endfor %}
+				<div class="card-body">
+					<a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
+					<a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% empty %}
+	NO RESULTS
+{% endfor %}
+
+{% endblock content %}

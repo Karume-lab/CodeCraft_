@@ -60,7 +60,7 @@ class ProjectsListView(ListView):
         elif filter_by == 'my_month':
             queryset = queryset.filter(date_due__month=date.today().month)
 
-        return queryset
+        return queryset.filter(user=self.request.user)
 
 class ProjectDetailView(DetailView):
     template_name = 'projects/detail.html'
