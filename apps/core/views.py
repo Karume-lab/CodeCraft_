@@ -1,4 +1,5 @@
-# from django.shortcuts import render
+from django.shortcuts import render
+from allauth.account.views import LoginView
 from django.views.generic import TemplateView
 # Create your views here.
 class IndexView(TemplateView):

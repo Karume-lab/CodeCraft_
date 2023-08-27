@@ -24,51 +24,36 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-					<form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+					<form class="form-subscribe" id="contactForm" method="post" action="{% url 'account_login' %}">
+						{% csrf_token %}
 						<!-- Email address input-->
 						<h2>Sign into your account</h2>
-						<div class="row">
-								<input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-								<div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-								<div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+						<div class="row mt-3">
+							<div class="col">
+							<input class="form-control form-control-lg" id="emailAddress" type="email" name="login" placeholder="Email Address" data-sb-validations="required,email" />
+							</div>
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-								<input class="form-control form-control-lg" id="password" type="password" placeholder="Password" data-sb-validations="required" />
+								<input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="Password" data-sb-validations="required" />
 								<div class="invalid-feedback text-white" data-sb-feedback="password:required">Password is required.</div>
 							</div>
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-								<button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+							<button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
 							</div>
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-								<a href="forgot_password.html" class="text-muted">Forgot your password ?</a>
+							<a href="{% url 'account_reset_password' %}" class="text-muted">Forgot your password?</a>
 							</div>
 						</div>
 						<div class="row mt-3">
 							<div class="col">
-							<a href="new_account.html" class="text-muted">Don't have an account yet? Register here</a>
-							</div>
+							<a href="{% url 'account_signup' %}" class="text-muted">Don't have an account yet? Register here</a>
 						</div>
-						<!-- Submit success message-->
-						<!---->
-						<!-- This is what your users will see when the form-->
-						<!-- has successfully submitted-->
-						<div class="d-none" id="submitSuccessMessage">
-							<div class="text-center mb-3">
-								<div class="fw-bolder">Form submission successful!</div>
-								<p>To activate this form, sign up at</p>
-								<a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-							</div>
 						</div>
-						<!-- Submit error message-->
-						<!---->
-						<!-- This is what your users will see when there is-->
-						<!-- an error submitting the form-->
-						<div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
 					</form>
 				</div>
 			</div>
