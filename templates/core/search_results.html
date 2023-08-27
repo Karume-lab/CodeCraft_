@@ -29,4 +29,27 @@ RESULTS:
 	NO RESULTS
 {% endfor %}
 
+{% for task in task_results %}
+	<div class="col-lg-6">
+		<div class="card_container">
+			<div class="card">
+				<div class="card-body">
+					<a href="{{task.project.get_absolute_url}}"><h4 class="card-title">{{task.project}}</h4></a>
+					<time>{{task.project.date_due}}</time>
+					<p class="card-text">{{task.project.description}}</p>
+				</div>
+				{% for task in project.tasks.all %}
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">&#9744; {{task.description}}</li>
+					</ul>
+				{% endfor %}
+				<div class="card-body">
+					<a href="{% url 'projects:edit' task.project.slug task.project.date_created.year task.project.date_created.month task.project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
+					<a href="{% url 'projects:delete' task.project.slug task.project.date_created.year task.project.date_created.month task.project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+
 {% endblock content %}
