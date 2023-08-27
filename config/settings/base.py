@@ -145,7 +145,7 @@ STATIC_URL = 'static/'
 
 # STATIC_ROOT = BASE_DIR.parent / 'static'  # stores static files outside the git project
 
-STATICFILES_DIRS = [BASE_DIR.parent / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # ==============================================================================
 # MEDIA FILES SETTINGS
