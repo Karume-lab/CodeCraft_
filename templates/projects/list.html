@@ -4,26 +4,28 @@
 
 {% block content %}
 	{% for project in projects %}
-		<div class="col-lg-6">
-			<div class="card_container">
-				<div class="card">
-					<div class="card-body">
-						<a href="{{project.get_absolute_url}}"><h4 class="card-title">{{project}}</h4></a>
-						<time>{{project.date_due}}</time>
-						<p class="card-text">{{project.description}}</p>
-					</div>
-					{% for task in project.tasks.all %}
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">&#9744; {{task.description}}</li>
-						</ul>
-					{% endfor %}
-					<div class="card-body">
-						<a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
-						<a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
+		<a href="{{project.get_absolute_url}}">
+			<div class="col-lg-6">
+				<div class="card_container">
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">{{project}}</h4>
+							<time>{{project.date_due}}</time>
+							<p class="card-text">{{project.description}}</p>
+						</div>
+						{% for task in project.tasks.all %}
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">&#9744; {{task.description}}</li>
+							</ul>
+						{% endfor %}
+						<div class="card-body">
+							<a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
+							<a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	{% empty %}
 		None
 	{% endfor %}
