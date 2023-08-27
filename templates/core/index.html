@@ -6,7 +6,16 @@
 <!-- Navigation-->
 <nav class="navbar navbar-light bg-light static-top p-2">
 	<!-- Favicon-->
-	<a href="{% url 'core:index' %}"><img style="aspect-ratio: 3/2; width: 100px;" src="{% static 'landing-page/img/logo.jpeg' %}" /></a>
+	<a href="{% url 'core:index' %}">
+		<img 
+			style="
+				border-radius: 100%;
+				width: 55px;
+				height: 70px;
+				object-fit: contain;
+			"
+			src="{% static 'landing-page/img/logo.jpeg' %}" />
+	</a>
 </nav>
 <!-- Masthead-->
 <header class="masthead">
@@ -16,45 +25,10 @@
 				<div class="text-center text-white">
 					<!-- Page heading-->
 					<h1 class="mb-5">Step into a World of Productivity!</h1>
-					<!-- Signup form-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- * * SB Forms Contact Form * *-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- This form is pre-integrated with SB Forms.-->
-					<!-- To make this form functional, sign up at-->
-					<!-- https://startbootstrap.com/solution/contact-forms-->
-					<!-- to get an API token!-->
-					<form class="form-subscribe" id="contactForm" method="post" action="{% url 'account_login' %}">
-						{% csrf_token %}
-						<!-- Email address input-->
-						<h2>Sign into your account</h2>
-						<div class="row mt-3">
-							<div class="col">
-							<input class="form-control form-control-lg" id="emailAddress" type="email" name="login" placeholder="Email Address" data-sb-validations="required,email" />
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col">
-								<input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="Password" data-sb-validations="required" />
-								<div class="invalid-feedback text-white" data-sb-feedback="password:required">Password is required.</div>
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col">
-							<button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col">
-							<a href="{% url 'account_reset_password' %}" class="text-muted">Forgot your password?</a>
-							</div>
-						</div>
-						<div class="row mt-3">
-							<div class="col">
-							<a href="{% url 'account_signup' %}" class="text-muted">Don't have an account yet? Register here</a>
-						</div>
-						</div>
-					</form>
+					<div>
+						<a href="{% url 'account_login' %}"><button class="btn btn-success m-1">Login</button></a>
+						<a href="{% url 'account_signup' %}"><button class="btn btn-primary m-1">Signup</button></a>
+					</div>
 				</div>
 			</div>
 		</div>

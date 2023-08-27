@@ -6,6 +6,7 @@ from .models import ProjectModel, TaskModel, SubTaskModel
 class ProjectModelAdmin(admin.ModelAdmin):
     list_display = [
 		'title',
+        'user',
 		'date_created',
 		'date_due',
 		'description',
