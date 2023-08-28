@@ -160,5 +160,5 @@ cython_debug/
 #.idea/
 
 #django settings
-config/
+# config/
 # apps/**/migrations/
