@@ -2,7 +2,7 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
 from django.utils.text import slugify
 from datetime import date
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, View
 from .models import ProjectModel, TaskModel, SubTaskModel
 from .forms import ProjectForm, TaskForm, SubTaskForm
 
@@ -37,6 +37,17 @@ class ProjectUpdateView(UpdateView):
     form_class = ProjectForm
     context_object_name = 'project'
     success_url = reverse_lazy('projects:list')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            new_project = form.save(commit=False)
+            new_project.slug = slugify(form.cleaned_data.get('title'))
+            new_project.save()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
 class ProjectDeleteView(DeleteView):
     template_name = 'projects/delete.html'
@@ -100,6 +111,8 @@ class TaskCreateView(CreateView):
             new_task.project = project
             new_task.slug = slugify(form.cleaned_data.get('description'))
             new_task.save()
+            project.update_progress()
+            project.save()
             return redirect(
                         reverse(
                             'projects:detail',
@@ -116,10 +129,52 @@ class TaskUpdateView(UpdateView):
     template_name = 'projects/tasks/edit.html'
     model = TaskModel
     form_class = TaskForm
-    success_url = reverse_lazy('projects:list')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            new_task = form.save(commit=False)
+            new_task.slug = slugify(form.cleaned_data.get('description'))
+            new_task.save()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def get_success_url(self):
+        project = self.object.project
+        return project.get_absolute_url()
 
 class TaskDeleteView(DeleteView):
     template_name = 'projects/tasks/delete.html'
     model = TaskModel
     context_object_name = 'task'
-    success_url = reverse_lazy('projects:list')
+
+    def get_success_url(self):
+        project = self.object.project
+        project.update_progress()
+        project.save()
+        return project.get_absolute_url()
+
+
+class MarkTaskCompleteView(View):
+    def post(self, request, slug, year, month, day):
+        task = get_object_or_404(TaskModel, slug=slug, date_created__year=year, date_created__month=month, date_created__day=day)
+        if task.status == TaskModel.COMPLETED:
+            task.status = TaskModel.PENDING
+        else:
+            task.status = TaskModel.COMPLETED
+        task.save()
+        project = task.project
+        project.update_progress()
+        return redirect(
+                    reverse(
+                        'projects:detail',
+                        args=[
+                            project.slug,
+                            project.date_created.year,
+                            project.date_created.month,
+                            project.date_created.day
+                        ]
+                    )
+                )

@@ -9,8 +9,19 @@
 				<div class="card_container">
 					<div class="card">
 						<div class="card-body">
-							<h4 class="card-title">{{project}}</h4>
-							<time>{{project.date_due}}</time>
+							<div class="row">
+								<div class="col">
+									<div>
+										<h4 class="card-title">{{ project }}</h4>
+										<time>{{ project.date_due }}</time>
+									</div>
+								</div>
+								<div class="col">
+									<div class="progress mb-4">
+										<div class="progress-bar bg-primary" role="progressbar" style="width: {{project.progress}}%" aria-valuenow="{{project.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
 							<p class="card-text">{{project.description}}</p>
 						</div>
 						{% for task in project.tasks.all %}
