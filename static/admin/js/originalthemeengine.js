@@ -5,7 +5,7 @@
         function setTheme(mode) {
             if (mode !== "light" && mode !== "dark" && mode !== "auto") {
                 console.error(`Got invalid theme mode: ${mode}. Resetting to auto.`);
-                mode = "default";
+                mode = "auto";
             }
             document.documentElement.dataset.theme = mode;
             localStorage.setItem("theme", mode);
@@ -18,20 +18,20 @@
             if (prefersDark) {
                 // Auto (dark) -> Light -> Dark
                 if (currentTheme === "auto") {
-                    setTheme("default");
+                    setTheme("light");
                 } else if (currentTheme === "light") {
-                    setTheme("default");
+                    setTheme("dark");
                 } else {
-                    setTheme("default");
+                    setTheme("auto");
                 }
             } else {
                 // Auto (light) -> Dark -> Light
                 if (currentTheme === "auto") {
-                    setTheme("default");
+                    setTheme("dark");
                 } else if (currentTheme === "dark") {
-                    setTheme("default");
+                    setTheme("light");
                 } else {
-                    setTheme("default");
+                    setTheme("auto");
                 }
             }
         }
@@ -39,7 +39,7 @@
         function initTheme() {
             // set theme defined in localStorage if there is one, or fallback to auto mode
             const currentTheme = localStorage.getItem("theme");
-            currentTheme ? setTheme(currentTheme) : setTheme("default");
+            currentTheme ? setTheme(currentTheme) : setTheme("auto");
         }
 
         function setupTheme() {

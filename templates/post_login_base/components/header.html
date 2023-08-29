@@ -4,7 +4,7 @@
 
 	<!-- Sidebar Toggle (Topbar) -->
 	<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-		<i class="bi bi-bars"></i>
+		<i class="fa fa-bars"></i>
 	</button>
 
 	<!-- Topbar Search -->
@@ -19,7 +19,7 @@
 				aria-label="Search" aria-describedby="basic-addon2" name="search_query">
 			<div class="input-group-append">
 				<button class="btn btn-primary" type="submit">
-					<i class="bi bi-search bi-sm"></i>
+					<i class="fa fa-search fa-sm"></i>
 				</button>
 			</div>
 		</div>
@@ -115,13 +115,13 @@
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 				aria-labelledby="userDropdown">
 				<a class="dropdown-item" href="#">
-					<i class="bi bi-person-circle">
-						Profile
-					</i>
+					<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+					Profile
 				</a>
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="{% url 'account_logout' %}">
-					<i class="bi bi-lock-fill">Logout</i>
+					<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+					Logout
 				</a>
 			</div>
 		</li>
