@@ -154,7 +154,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = BASE_DIR.parent / 'media'  # stores media outside the git project
+MEDIA_ROOT = BASE_DIR / 'media'  # stores media outside the git project
 
 # ==============================================================================
 # THIRD-PARTY SETTINGS
