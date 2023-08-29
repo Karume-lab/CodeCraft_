@@ -2,12 +2,14 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">
-		<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		<button class="rounded-circle border-0" id="sidebarToggle">
+			<!-- <i class="bi bi-toggles"></i> -->
+		</button>
 	</div>
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'core:home' %}">
 		<div class="sidebar-brand-icon rotate-n-15">
-			<i class="fas fa-laugh-wink"></i>
+			<i class="bi bi-code-slash" style="font-size:30px"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">CodeCraft!</div>
 	</a>
@@ -27,13 +29,14 @@
 
 	<!-- Heading -->
 	<div class="sidebar-heading">
+		<i class="bi bi-journal-bookmark"></i>
 		Journal
 	</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link" href="{% url 'projects:create' %}" aria-expanded="true">
-			<span class="bi bi-pencil-square"></span>
+			<span class="bi bi-pen"></span>
 			<span>Add Project</span>
 		</a>
 	</li>
@@ -41,15 +44,27 @@
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
 			aria-expanded="true" aria-controls="collapseTwo">
-			<span class="bi bi-eye"></span>
+			<span class="bi bi-clipboard"></span>
 			<span>View Projects</span>
 		</a>
 		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="{% url 'projects:list' %}">All</a>
-				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=today">Today</a>
-				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=this_week">This Week</a>
-				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=my_month">My Month</a>
+			<div class="py-2 collapse-inner rounded">
+				<a class="collapse-item" href="{% url 'projects:list' %}">
+					<i class="bi bi-server"></i>
+					All
+				</a>
+				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=today">
+					<i class="bi bi-calendar3-event"></i>
+					Today
+				</a>
+				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=this_week">
+					<i class="bi bi-calendar3-week"></i>
+					This Week
+				</a>
+				<a class="collapse-item" href="{% url 'projects:list' %}?filter_by=my_month">
+					<i class="bi bi-calendar3"></i>
+					My Month
+				</a>
 			</div>
 		</div>
 	</li>
@@ -59,38 +74,61 @@
 
 	<!-- Heading -->
 	<div class="sidebar-heading">
+		<i class="bi bi-tools"></i>
 		Toolbar
 	</div>
 	<!-- Nav Item - Utilities Collapse Menu -->
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
 			aria-expanded="true" aria-controls="collapseUtilities">
-			<i class="bi bi-sun"></i>
+			<i class="bi bi-toggles2"></i>
 			<span>Themes</span>
 		</a>
-		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-			data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="mode collapse-item" data-mode="default">LightMode</a>
-				<a class="mode collapse-item" data-mode="night">NightMode</a>
-				<a class="mode collapse-item" data-mode="dark">DarkMode</a>
+		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="py-2 collapse-inner rounded">
+				<a class="collapse-item mode" data-mode="default" href="#theme-change">
+				<i class="bi bi-brightness-high"></i>
+					LightMode
+				</a>
+				<a class="collapse-item mode" data-mode="night" href="#theme-change">
+					<i class="bi bi-brightness-low"></i>
+					NightMode
+				</a>
+				<a class="collapse-item mode" data-mode="dark" href="#theme-change">
+					<i class="bi bi-brightness-low-fill"></i>
+					DarkMode
+				</a>
 			</div>
 		</div>
 	</li>
 
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#">
-			<i class="fas fa-download fa-sm text-white-50"></i>
-			<span>Print</span>
+			<i class="bi bi-trash fa-sm text-white-50"></i>
+			<span>Trash</span>
 		</a>
 	</li>
 
 	<li class="nav-item">
 		<a class="nav-link collapsed" href="#">
-			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-				<path d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64H576c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H461.7c11.6 36 3.1 77-25.4 105.5L320 413.8V448zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
-			</svg>
-			<span>Randomize</span>
+			<i class="bi bi-share fas fa-sm text-white-50"></i>
+			<span>Share</span>
+		</a>
+	</li>
+
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#">
+			<i class="bi bi-send fa-sm text-white-50"></i>
+			<span>Send Feedback</span>
+    </a>
+  </li>
+
+  	<li class="nav-item">
+		  <a class="nav-link collapsed" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+          <path d="M274.9 34.3c-28.1-28.1-73.7-28.1-101.8 0L34.3 173.1c-28.1 28.1-28.1 73.7 0 101.8L173.1 413.7c28.1 28.1 73.7 28.1 101.8 0L413.7 274.9c28.1-28.1 28.1-73.7 0-101.8L274.9 34.3zM200 224a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM96 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 376a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM352 200a24 24 0 1 1 0 48 24 24 0 1 1 0-48zM224 120a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm96 328c0 35.3 28.7 64 64 64H576c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H461.7c11.6 36 3.1 77-25.4 105.5L320 413.8V448zM480 328a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+        </svg>
+        <span>Randomize</span>
 		</a>
 	</li>
 </ul>
