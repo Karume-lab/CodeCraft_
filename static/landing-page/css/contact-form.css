@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.contact-info {
+    background-image: url('{% static 'landing-page/img/background.jpg' %}');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    
+    padding: 50px; /* Add padding to the section if needed */
+    color: #fff; /* Set text color for better contrast */
+}
+.contactus h2{
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contactus p{
+    color: white;
+    text-align: center;
+}
+
+
+
+
+.contact-box-icon{
+    display: flex;
+    margin-bottom: 30px;
+
+}
+
+.contact-content{
+    justify-content: space-between;
+}
+
+.contact_icon{
+    height: 70px;
+    width: 70px;
+    
+
+
+}
+
+.contact-info-major {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Or any other alignment option based on your design */
+}
+
+.contact-box,
+.contact-form {
+    flex: 1;
+    padding: 20px;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Additional styling for the form inputs and buttons */
+/* .contact-form input[type="text"], */
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.input-box input{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
+

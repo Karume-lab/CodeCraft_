@@ -52,13 +52,83 @@
 				<p class="lead mb-0">Revolutionize your project management as a programmer. Track, conquer, and code with precision. Embrace the power of organized programming today!"</p>
 			</div>
 		</div>
-		<div class="row g-0" id="services">
+		<div class="row g-0">
 			<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/picture2.jpeg' %}')"></div>
 			<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 				<h2>Ease of Use</h2>
 				<p class="lead mb-0">Effortlessly add your content and images, and voilà - your progress is at your fingertips, fully responsive across devices. Embrace the ease of use and creative control as you embark on your organized journey!"</p>
 			</div>
 		</div>
+        <div class="row g-0" id="services">
+			<div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/notes.jpeg' %}')"></div>
+			<div class="col-lg-6 my-auto showcase-text">
+				<h2>Services</h2>
+				<p class="lead mb-0">Track your projects and their progress.
+                    Organize projects into tasks and sub-tasks.
+                    Set milestones and deadlines.Receive reminders and notifications for upcoming task deadlines.
+                    Set custom notification preferences.Integrate with Git repositories for developers to link tasks with code changes.
+                    Automatically update task statuses based on code commits.!"</p>
+			</div>
+		</div>
 	</div>
 </section>
+
+<section class="contact-info" style="background-image: url('{% static 'landing-page/img/background.jpg' %}');">
+    <div class="contactus" id="contact">
+        <h2>Contact Us</h2>
+        <p>Feel free to get in touch with us! We're here to assist you and answer any questions you might have. You can reach us using the following contact methods:</p>
+    </div>
+    <div class="contact-info-major">
+        <div class="contact-box">
+            <div class="contact-box-icon">
+                <div class="contact_icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-content">
+                    <h3>Phone</h3>
+                    <a href="tel:+254712345678">+254 712 345 678</a>
+                </div>
+            </div>
+            <div class="contact-box-icon">
+                <div class="contact_icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-content">
+                    <h3>Email</h3>
+                    <a href="mailto:codecraft@gmail.com">codecraft@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form id="contact-form">
+                <h2>Send Us a Message</h2>
+                <div class="form-box">
+                    <div class="input-box">
+                        <label for="name">Your Name:</label><br>
+                        <input type="text" id="name" required="true" class="bg-white">
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Your Email:</label><br>
+                        <input type="email" id="email" required="true" class="bg-white">
+                    </div>
+                    <div class="input-box">
+                        <label for="subject">Subject:</label><br>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="description">Description:</label><br>
+                        <textarea id="description" cols="30" rows="10" required="true" class="bg-white">
+
+                        </textarea>
+                    </div>
+                    <div class="input-box">
+                        <button type="submit" class="btn btn-primary m-1">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
 {% endblock body %}
