@@ -9,9 +9,11 @@ class ProjectModelAdmin(admin.ModelAdmin):
         'user',
 		'date_created',
 		'date_due',
+        'progress',
 		'description',
 		'status',
 		'image',
+        'slug',
 	]
 
     prepopulated_fields = {

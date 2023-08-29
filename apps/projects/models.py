@@ -1,13 +1,15 @@
-from django.db import models
 from django.urls import reverse
+from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class ProjectModel(models.Model):
     user = models.ForeignKey('accounts.CustomUser', verbose_name='User', on_delete=models.CASCADE, related_name='user_projects', blank=True, null=True)
-    title = models.CharField(max_length=45)
+    title = models.CharField(max_length=45, unique=True)
     date_created = models.DateField(auto_now=False, auto_now_add=True)
     date_due = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True, verbose_name='Date Due')
     date_updated = models.DateField(auto_now=True, auto_now_add=False)
+    progress = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)], null=True)
     description = models.TextField(blank=True, null=True)
     WORKING_ON = 'w'
     PENDING = 'p'
@@ -22,6 +24,15 @@ class ProjectModel(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=1, default=PENDING)
     image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True)
     slug = models.SlugField(db_index=True)
+
+    def update_progress(self):
+        total_tasks = self.tasks.count()
+        completed_tasks = self.tasks.filter(status=TaskModel.COMPLETED).count()
+        if total_tasks > 0:
+            self.progress = int((completed_tasks / total_tasks) * 100)
+        else:
+            self.progress = 0
+        self.save()
 
     class Meta:
         verbose_name = 'Project'
