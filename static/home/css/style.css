@@ -1,11 +1,43 @@
-.dark,
-.dark *{
-  background: black; 
-  color: white;
-}
-
-.night,
-.night *{
-  background: #5a5c69; 
-  color: white;
-}
+/* Initially hide the content */
+.hidden-content {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Apply this rule when the hidden-content class is removed */
+  body:not(.hidden-content) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .auto,
+  
+  
+  .dark,
+  .dark *:not(.dropdown-item, a *){
+    background: black; 
+    /* color: white; */
+  }
+  
+  .night,
+  .night *:not(.dropdown-item, a *){
+    background: #5a5c69; 
+    /* color: white; */
+  }
+  
+  @keyframes wipe-cinematic-in {
+    0% {
+      clip-path: inset(100% 0 100% 0);
+    }
+    30%, 70% {
+      clip-path: inset(10% 0 10% 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  [transition-style="in:wipe:cinematic"] {
+     animation-name: wipe-cinematic-in;
+  }
+  

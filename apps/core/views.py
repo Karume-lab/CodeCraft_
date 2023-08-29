@@ -1,14 +1,22 @@
 from django.shortcuts import render
 from typing import Any, Dict
 from django.db.models import Q
-from django.views.generic import TemplateView
+from datetime import datetime
+from django.views.generic import TemplateView, ListView
 from apps.projects.models import ProjectModel, TaskModel
 # Create your views here.
 class IndexTemplateView(TemplateView):
     template_name = 'core/index.html'
 
-class HomeTemplateView(TemplateView):
+class HomeTemplateView(ListView):
     template_name = 'core/home.html'
+    model = ProjectModel
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = ProjectModel.objects.all()
+        context['today_projects'] = ProjectModel.objects.filter(date_due=datetime.today().date())
+        return context
 
 class SearchTemplateView(TemplateView):
     template_name = 'core/search_results.html'
