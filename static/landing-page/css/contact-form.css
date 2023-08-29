@@ -100,8 +100,21 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    border-radius: 5px;
+    width: 8cm;
 }
 
 
 
+.text-black{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
 
