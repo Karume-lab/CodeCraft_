@@ -22,7 +22,7 @@ class ProjectModel(models.Model):
 		(DRAFT, 'Draft'),
 	]
     status = models.CharField(choices=STATUS_CHOICES, max_length=1, default=PENDING)
-    image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True)
+    image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True, default='projects/banner.jpg')
     slug = models.SlugField(db_index=True)
 
     def update_progress(self):
