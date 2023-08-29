@@ -28,11 +28,11 @@ function saveTheme(theme) {
 
 function loadTheme() {
   const loadedTheme = localStorage.getItem('theme');
+  body.classList.remove('hidden-content');
   if (loadedTheme && !body.classList.contains(loadedTheme)) {
     body.classList.add(loadedTheme);
     updateSidebarColor();
   }
-  body.classList.remove('hidden-content');
 }
 
 function handleModeClick(e) {
