@@ -1,5 +1,5 @@
 {% extends 'post_login_base/base.html' %}
-
+{% load custom_filters %}
 {% block title %}Projects{% endblock title %}
 
 {% block content %}
@@ -18,7 +18,7 @@
 								</div>
 								<div class="col">
 									<div class="progress mb-4">
-										<div class="progress-bar bg-primary" role="progressbar" style="width: {{project.progress}}%" aria-valuenow="{{project.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+										<div class="progress-bar" role="progressbar" style="width: {{project.progress}}%; background-color: {{ project.progress|get_progress_color }}" aria-valuenow="{{project.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>
 								</div>
 							</div>
