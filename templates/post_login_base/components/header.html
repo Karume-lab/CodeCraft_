@@ -103,10 +103,12 @@
                     <div class="mt-5 text-center">
                         <h4 class="mb-0">{{user.username}}</h4>
                         <span class="text-muted d-block mb-2"> </span>
+                      <a class="dropdown-item" href="{% url 'profile' %}">
                         <button class="btn btn-success btn-sm">
                             <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile
                         </button>
+                      </a>
                         <button class="btn btn-danger btn-sm" href="{% url 'account_logout' %}">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
@@ -130,6 +132,7 @@
                         </div>   
                     </div>
                 </div>
+				<div class="dropdown-divider"></div>
 			</div>
 		</li>
 
