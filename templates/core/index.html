@@ -4,7 +4,7 @@
 {% block title %}Welcome{% endblock title %}
 {% block body %}
 <!-- Navigation-->
-<nav class="navbar navbar-light bg-light static-top p-2">
+<nav class="navbar navbar-light bg-light static-top p-2 ">
 	<!-- Favicon-->
 	<a href="{% url 'core:index' %}">
 		<img
@@ -16,6 +16,9 @@
 			"
 			src="{% static 'landing-page/img/logo.jpeg' %}" />
 	</a>
+    <a href="#services"><i class="fas fa-cogs"> </i>Services</a>
+    <a href="#About"><i class="fas fa-users"></i>About Us</a>
+    <a href="#contact"><i class="fas fa-envelope"></i>Contact us</a>
 </nav>
 <!-- Masthead-->
 <header class="masthead" style="background-image: url('{% static 'landing-page/img/banner.jpg' %}')"">
@@ -38,8 +41,8 @@
 <section class="showcase">
 	<div class="container-fluid p-0">
 		<div class="row g-0">
-			<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/logo.jpeg' %}')"></div>
-			<div class="col-lg-6 order-lg-1 my-auto showcase-text">
+			<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/Codecraft.jpeg' %}'); background-colour: black;"></div>
+			<div class="col-lg-6 order-lg-1 my-auto showcase-text" id="About">
 				<h2>CodeCraft</h2>
 				<p class="lead mb-0">Discover Seamless Task Management with CodeCraft.
 							Your tasks, beautifully organized and responsive across all devices - from your phone to your tablet and desktop. Welcome to a world where productivity meets elegance!</p>
@@ -86,7 +89,8 @@
                 </div>
                 <div class="contact-content">
                     <h3>Phone</h3>
-                    <a href="tel:+254712345678">+254 712 345 678</a>
+                    <p>Interested in Services offered by Codecraft?Just pick up the phone to chat with a member</p>
+                    <p href="tel:+254712345678" class="text-black">+254 712 345 678</p>
                 </div>
             </div>
             <div class="contact-box-icon">
@@ -95,7 +99,8 @@
                 </div>
                 <div class="contact-content">
                     <h3>Email</h3>
-                    <a href="mailto:codecraft@gmail.com">codecraft@gmail.com</a>
+                    <p>Just send us your questions or concerns and we will give you the help you need</p>
+                    <p href="mailto:codecraft@gmail.com" class="text-black">codecraft@gmail.com</p>
                 </div>
             </div>
         </div>
