@@ -9,16 +9,16 @@
 
 	<!-- Topbar Search -->
 	<form
-		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search black-accordion"
 		method="get"
 		action="{% url 'core:search' %}"
 		>
 		{% csrf_token %}
-		<div class="input-group">
-			<input type="text" class="form-control border-0 small" placeholder="Search for..."
+		<div class="input-group black-accordion">
+			<input type="text" class="form-control border-0 small black-accordion" style="color: aliceblue;" placeholder="Search for..."
 				aria-label="Search" aria-describedby="basic-addon2" name="search_query">
-			<div class="input-group-append">
-				<button class="btn btn-primary" type="submit">
+			<div class="input-group-append black-accordion">
+				<button class="btn btn-primary black-accordion" type="submit">
 					<i class="fa fa-search fa-sm"></i>
 				</button>
 			</div>
@@ -90,15 +90,46 @@
 			<!-- Dropdown - User Information -->
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 				aria-labelledby="userDropdown">
-				<a class="dropdown-item" href="#">
-					<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-					Profile
-				</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="{% url 'account_logout' %}">
-					<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-					Logout
-				</a>
+                <div class="wipe-cinematic-in container-profile justify-content-center align-items-center">   
+                    <div class="card-profile">
+                        <div class="upper-profile">
+                            <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
+                        </div>
+                        <div class="user-profile text-center">
+                            <div class="profile">
+                            <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="80"> 
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <h4 class="mb-0">{{user.username}}</h4>
+                        <span class="text-muted d-block mb-2"> </span>
+                        <button class="btn btn-success btn-sm">
+                            <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </button>
+                        <button class="btn btn-danger btn-sm" href="{% url 'account_logout' %}">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </button>
+                        <span class="text-muted d-block mb-2"> </span>
+                        <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                                <div>
+                                    <h6 class="mb-0">Projects</h6>
+                                    <span>8,797</span>
+                                </div>
+                                <div class="stats-profile">
+                                    <h6 class="mb-0">Completed</h6>
+                                    <span>142</span>
+                                </div>
+            
+                                <div>
+                                    <h6 class="mb-0">Incomplete</h6>
+                                    <span>129</span>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
 			</div>
 		</li>
 

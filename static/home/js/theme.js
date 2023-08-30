@@ -6,8 +6,8 @@ const footer = document.getElementById('bottombarFooter');
 
 const sidebarClasses = {
   default: 'bg-gradient-primary',
-  dark: 'dark',
-  night: 'bg-gradient-dark'
+  dark: 'bg-info',
+  night: 'black-accordion'
 }
 function updateSidebarColor() {
   const theme = body.classList.contains('sidebar-toggled')
