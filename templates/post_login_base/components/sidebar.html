@@ -20,8 +20,13 @@
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item active">
 		<a class="nav-link" href="{% url 'core:home' %}">
-			<i class="bi bi-sun"></i>
+			<i class="bi bi-house bi-beat"></i>
 			<span>My Day</span></a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="">
+			<i class="fas fa-solid fa-bell fa-bounce"></i>
+			<span>Important</span></a>
 	</li>
 
 	<!-- Divider -->
@@ -110,14 +115,14 @@
 	</li>
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#">
+		<a class="nav-link collapsed" href="{% url 'core:share' %}">
 			<i class="bi bi-share fas fa-sm text-white-50"></i>
 			<span>Share</span>
 		</a>
 	</li>
 
 	<li class="nav-item">
-		<a class="nav-link collapsed" href="#">
+		<a class="nav-link collapsed" href="{% url 'core:feedback' %}">
 			<i class="bi bi-send fa-sm text-white-50"></i>
 			<span>Send Feedback</span>
     </a>

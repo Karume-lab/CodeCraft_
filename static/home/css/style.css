@@ -2,42 +2,115 @@
 .hidden-content {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-  }
-  
-  /* Apply this rule when the hidden-content class is removed */
-  body:not(.hidden-content) {
+}
+
+/* Apply this rule when the hidden-content class is removed */
+body:not(.hidden-content) {
     opacity: 1;
     pointer-events: auto;
-  }
-  
-  .auto,
-  
-  
-  .dark,
-  .dark *:not(.dropdown-item, a *){
-    background: black; 
+}
+
+.black-accordion {
+    background-color: black !important;
+    color: white;
+}
+
+.dark,
+.dark *:not(.dropdown-item,.accordion *,a *) {
+    background: #1A1A1B;
     /* color: white; */
-  }
-  
-  .night,
-  .night *:not(.dropdown-item, a *){
-    background: #5a5c69; 
+}
+
+.night,
+.night *:not(.dropdown-item, a *, .accordion *) {
+    background: #353437;
     /* color: white; */
-  }
-  
-  @keyframes wipe-cinematic-in {
+}
+
+@keyframes wipe-cinematic-in {
     0% {
-      clip-path: inset(100% 0 100% 0);
+        clip-path: inset(100% 0 100% 0);
     }
-    30%, 70% {
-      clip-path: inset(10% 0 10% 0);
+
+    30%,
+    70% {
+        clip-path: inset(10% 0 10% 0);
     }
+
     100% {
-      clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
     }
-  }
-  
-  [transition-style="in:wipe:cinematic"] {
-     animation-name: wipe-cinematic-in;
-  }
-  
+}
+
+[transition-style="in:wipe:cinematic"] {
+    animation-name: wipe-cinematic-in;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+body{
+    background-color: #545454;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+/* .container-profile {
+    /* height: 5vh; */
+/* } */ 
+
+.card-profile {
+    width: 380px;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    /* background-color: #fff; */
+    position: relative;
+    height: 370px;
+}
+
+.upper-profile {
+
+    height: 100px;
+
+}
+
+.upper-profile img {
+
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.user-profile {
+    position: relative;
+}
+
+.profile img {
+    height: 80px;
+    width: 80px;
+    margin-top: 2px;
+}
+
+.profile {
+
+    position: absolute;
+    top: -50px;
+    left: 38%;
+    height: 90px;
+    width: 90px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+
+}
+
+.follow-profile {
+
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px;
+}
+
+.stats-profile span {
+    font-size: 29px;
+}

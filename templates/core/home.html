@@ -1,5 +1,6 @@
 {% extends 'post_login_base/base.html' %}
 {% load tz %}
+{% load custom_filters %}
 {% block title %}Home{% endblock title %}
 
 {% block content %}
@@ -23,7 +24,7 @@
                         <h4 class="small font-weight-bold">{{project.title}}<span
                                 class="float-right">{{project.progress}}%</span></h4>
                         <div class="progress mb-4">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{project.progress}}%"
+                            <div class="progress-bar" role="progressbar" style="width: {{project.progress}}%;  background-color: {{ project.progress|get_progress_color }}"
                                 aria-valuenow="{{project.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -54,7 +55,7 @@
                         </div>
                     </div>
                     {% for task in project.tasks.all %}
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush ">
                         <li class="list-group-item">{{ task.description }}</li>
                         </ul>
                     {% endfor %}
