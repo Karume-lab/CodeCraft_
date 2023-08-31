@@ -160,7 +160,7 @@ MEDIA_ROOT = BASE_DIR / 'media'  # stores media outside the git project
 # ==============================================================================
 #allauth settings
 LOGIN_REDIRECT_URL = 'core:home'
-ACCOUNT_LOGOUT_REDIRECT_URL ='account_login' 
+ACCOUNT_LOGOUT_REDIRECT_URL ='core:index' 
 ACCOUNT_FORMS = {
     'login':'apps.accounts.forms.CustomLoginForm',
     'signup':'apps.accounts.forms.CustomSignupForm'
