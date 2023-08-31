@@ -31,8 +31,3 @@ class SearchTemplateView(TemplateView):
         context['task_results'] = TaskModel.objects.filter(description__icontains=search_query)
         return context
 
-class ShareTemplateView(TemplateView):
-    template_name = 'core/share.html'
-
-class FeedbackTemplateView(TemplateView):
-    template_name = 'core/feedback.html'
