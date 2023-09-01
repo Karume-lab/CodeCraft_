@@ -1,24 +1,36 @@
 const modes = document.querySelectorAll('.mode');
 const body = document.body;
 const sidebar = document.getElementById('accordionSidebar');
-const header = document.getElementById('topbarHeader');
-const footer = document.getElementById('bottombarFooter');
+const searchbar = document.getElementById('searchBar');
 
 const sidebarClasses = {
   default: 'bg-gradient-primary',
-  dark: 'bg-info',
+  dark: 'grey-accordion',
   night: 'black-accordion'
-}
+};
+
 function updateSidebarColor() {
   const theme = body.classList.contains('sidebar-toggled')
   ? body.classList[1]
   : body.classList[0];
+  
+  searchbar.classList.remove(
+    'bg-white',
+    sidebarClasses.default,
+    sidebarClasses.dark,
+    sidebarClasses.night
+  );
 
   sidebar.classList.remove(
 	sidebarClasses.default,
 	sidebarClasses.dark,
 	sidebarClasses.night
   );
+  if (theme === 'default') {
+    searchbar.classList.add('bg-white');
+  } else {
+    searchbar.classList.add(sidebarClasses[theme]);
+  }  
   sidebar.classList.add(sidebarClasses[theme]);
 }
 

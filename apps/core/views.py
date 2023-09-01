@@ -5,6 +5,13 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.views.generic import TemplateView, ListView, DetailView
 from apps.projects.models import ProjectModel, TaskModel
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from django.conf import settings
+import json
+
 # Create your views here.
 class IndexTemplateView(TemplateView):
     template_name = 'core/index.html'
@@ -32,8 +39,26 @@ class SearchTemplateView(TemplateView):
         context['task_results'] = TaskModel.objects.filter(description__icontains=search_query)
         return context
 
-class ShareTemplateView(TemplateView):
-    template_name = 'core/share.html'
+@csrf_exempt
+def send_email(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        
+        name = data.get("name")
+        email = data.get("email")
+        subject = data.get("subject")
+        description = data.get("description")
+        settings.DEFAULT_FROM_EMAIL = email
+
+        # Compose the email body
+        body = f"Name: {name}\nEmail: {email}\nSubject: {subject}\nDescription: {description}"
+
+        # Send the email
+        send_mail(subject, body, email, ["ephraimshikanga@gmail.com"])
+
+        return JsonResponse({"message": "Email sent successfully"})
+    
+    return JsonResponse({"error": "Invalid request method"})
 
 class FeedbackTemplateView(TemplateView):
     template_name = 'core/feedback.html'
@@ -46,3 +71,4 @@ class RandomizeDetailView(DetailView):
     def get_object(self):
         random_project = random.choice(ProjectModel.objects.all())
         return random_project
+

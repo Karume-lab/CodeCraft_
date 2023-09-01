@@ -9,16 +9,16 @@
 
 	<!-- Topbar Search -->
 	<form
-		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search black-accordion"
+		class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
 		method="get"
 		action="{% url 'core:search' %}"
 		>
 		{% csrf_token %}
-		<div class="input-group black-accordion">
-			<input type="text" class="form-control border-0 small black-accordion" style="color: blue;" placeholder="Search for..."
+		<div class="input-group">
+			<input id="searchBar" type="text" class="form-control border-0 small" placeholder="Search for..."
 				aria-label="Search" aria-describedby="basic-addon2" name="search_query" required>
-			<div class="input-group-append black-accordion">
-				<button class="btn btn-primary black-accordion" type="submit">
+			<div class="input-group-append">
+				<button class="btn btn-primary" type="submit">
 					<i class="fa fa-search fa-sm"></i>
 				</button>
 			</div>
