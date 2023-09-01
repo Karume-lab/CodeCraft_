@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from typing import Any, Dict
-from django.db.models import Q
+from typing import Any, Dict, Optional
+import random
 from datetime import datetime
-from django.views.generic import TemplateView, ListView
+from django.shortcuts import render
+from django.db.models import Q
+from django.views.generic import TemplateView, ListView, DetailView
 from apps.projects.models import ProjectModel, TaskModel
 # Create your views here.
 class IndexTemplateView(TemplateView):
@@ -36,3 +37,12 @@ class ShareTemplateView(TemplateView):
 
 class FeedbackTemplateView(TemplateView):
     template_name = 'core/feedback.html'
+
+class RandomizeDetailView(DetailView):
+    template_name = 'core/randomize.html'
+    model = ProjectModel
+    context_object_name = 'project'
+
+    def get_object(self):
+        random_project = random.choice(ProjectModel.objects.all())
+        return random_project
