@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from typing import Any, Dict
-from django.db.models import Q
+from typing import Any, Dict, Optional
+import random
 from datetime import datetime
-from django.views.generic import TemplateView, ListView
+from django.shortcuts import render
+from django.db.models import Q
+from django.views.generic import TemplateView, ListView, DetailView
 from apps.projects.models import ProjectModel, TaskModel
 
 from django.http import JsonResponse
@@ -38,7 +39,6 @@ class SearchTemplateView(TemplateView):
         context['task_results'] = TaskModel.objects.filter(description__icontains=search_query)
         return context
 
-
 @csrf_exempt
 def send_email(request):
     if request.method == "POST":
@@ -59,3 +59,16 @@ def send_email(request):
         return JsonResponse({"message": "Email sent successfully"})
     
     return JsonResponse({"error": "Invalid request method"})
+
+class FeedbackTemplateView(TemplateView):
+    template_name = 'core/feedback.html'
+
+class RandomizeDetailView(DetailView):
+    template_name = 'core/randomize.html'
+    model = ProjectModel
+    context_object_name = 'project'
+
+    def get_object(self):
+        random_project = random.choice(ProjectModel.objects.all())
+        return random_project
+
