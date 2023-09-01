@@ -64,8 +64,8 @@ class ProjectsListView(ListView):
         queryset = super().get_queryset()
         filter_by = self.request.GET.get('filter_by')
 
-        if filter_by == 'today':
-            queryset = queryset.filter(date_due__day=date.today().day)
+        if filter_by == 'tomorrow':
+            queryset = queryset.filter(date_due__day=date.today().day + 1)
         elif filter_by == 'this_week':
             queryset = queryset.filter(date_due__week=date.today().isocalendar()[1])
         elif filter_by == 'my_month':
