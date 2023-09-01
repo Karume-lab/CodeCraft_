@@ -10,11 +10,14 @@
     background-image: url('{% static 'landing-page/img/background.jpg' %}');
     background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center center; 
+    background-position: center; 
     
     padding: 50px; /* Add padding to the section if needed */
     color: #fff; /* Set text color for better contrast */
+    cursor: pointer;
 }
+
+
 .contactus h2{
     color: white;
     font-weight: bold;
@@ -29,24 +32,17 @@
 }
 
 
-
-
-.contact-box-icon{
-    display: flex;
-    margin-bottom: 30px;
-
-}
-
 .contact-content{
     justify-content: space-between;
 }
 
 .contact_icon{
-    height: 70px;
-    width: 70px;
-    
-
-
+    height: 40px;
+    width: 40px;
+    background-color: beige;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
 }
 
 .contact-info-major {
@@ -76,10 +72,31 @@
 
 /* Additional styling for the form inputs and buttons */
 /* .contact-form input[type="text"], */
+.form{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+}
+
+.contact-form textarea ,
+.input-box input{
+    border: 0px; transparent;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    width: 8cm;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(2, 2, 66);
+    cursor: pointer;    
+}
+
 .contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 5cm;
 }
 
 .contact-form button {
@@ -95,15 +112,15 @@
     background-color: #0056b3;
 }
 
-.input-box input{
-    border: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    border-radius: 5px;
-    width: 8cm;
+
+.input-box label{
+    transition: 0.9s ease-in-out;
+    margin-top: 10px; 
 }
 
+.input-box input:focus +label{
+    transform: translateY(-20px);
+}
 
 
 .text-black{
@@ -117,4 +134,3 @@
     margin-left: 50px;
     margin-right: 50px;
 }
-

@@ -12,3 +12,4 @@ def get_progress_color(progress):
         return 'orange'
     else:
         return 'red'
+
