@@ -23,7 +23,7 @@
 									<div class="flex-column">
 										{% for field in form %}
 										<div class="form-group">
-											{{field}} {{field.errors}}
+											{{field.label}} {{field}} {{field.errors}}
 										</div>
 										{% endfor %}
 										{% if redirect_field_value %}
