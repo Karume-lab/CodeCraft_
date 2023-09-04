@@ -11,10 +11,8 @@
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center; 
-    
     padding: 50px; /* Add padding to the section if needed */
     color: #fff; /* Set text color for better contrast */
-    cursor: pointer;
 }
 
 

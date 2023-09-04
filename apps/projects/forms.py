@@ -5,10 +5,10 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = ProjectModel
         fields = [
-            'image',
             'title',
             'date_due',
             'description',
+            'image',
 		]
 
 class TaskForm(forms.ModelForm):

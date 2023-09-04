@@ -36,6 +36,8 @@ class CustomLoginForm(LoginForm):
                 'placeholder': 'Password'
             }
         )
+        self.fields['login'].label = ''
+        self.fields['password'].label = ''
 
 class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
