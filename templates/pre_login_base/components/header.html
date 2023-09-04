@@ -1,7 +1,19 @@
-<!-- <header>
-	<nav>
-		<a href="#services">Services</a>
-        <a href="#services">About</a>
-        <a href="#contact">Contact us</a>
-	</nav>
-</header> -->
+{% load static %}
+
+<!-- Navigation-->
+<nav class="navbar navbar-light bg-light static-top p-2 ">
+	<!-- Favicon-->
+	<a href="{% url 'core:index' %}">
+		<img
+			style="
+				border-radius: 100%;
+				width: 55px;
+				height: 70px;
+				object-fit: contain;
+			"
+			src="{% static 'landing-page/img/logo.jpeg' %}" />
+	</a>
+    <a href="#services" class="text-decoration-none"><i class="fas fa-cogs"></i>Services</a>
+    <a href="#About" class="text-decoration-none"><i class="fas fa-users"></i>About Us</a>
+    <a href="#contact" class="text-decoration-none"><i class="fas fa-envelope"></i>Contact us</a>
+</nav>

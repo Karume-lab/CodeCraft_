@@ -37,13 +37,13 @@
 							{% endif %}
 							<button class="btn btn-primary btn-user btn-block mb-3" type="submit">Register Account</button>
 						</form>
-							<a href="index.html" class="btn btn-google btn-user btn-block">
+							{% comment %} <a href="index.html" class="btn btn-google btn-user btn-block">
 								<i class="fab fa-google fa-fw"></i> Register with Google
 							</a>
 							<a href="index.html" class="btn btn-facebook btn-user btn-block">
 								<i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
 							</a>
-						<hr>
+						<hr> {% endcomment %}
 						<div class="text-center">
 							<a class="small" href="{% url 'account_reset_password' %}">Forgot Password?</a>
 						</div>
