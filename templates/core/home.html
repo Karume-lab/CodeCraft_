@@ -16,19 +16,18 @@
 
             <!-- Project Card Example -->
             <div class="card shadow mb-3">
-                <div class="card-header py-3">
-                    <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sort
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">A-Z</a>
-                                <a class="dropdown-item" href="#">By Date</a>
-                                <a class="dropdown-item" href="#">Urgency</a>
-                            </div>
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS </h6>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort
+                        </button>                            
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Alphabetically</a>
+                            <a class="dropdown-item" href="#">By Date</a>
+                            <a class="dropdown-item" href="#">Urgency</a>
                         </div>
-                    </h6>
+                    </div>
                 </div>
                 {% for project in projects %}
                     <div class="card-body">
