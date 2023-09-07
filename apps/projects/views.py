@@ -3,11 +3,12 @@ from django.shortcuts import redirect, get_object_or_404
 from django.utils.text import slugify
 from datetime import date
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import ProjectModel, TaskModel, SubTaskModel
 from .forms import ProjectForm, TaskForm, SubTaskForm
 
 # Create your views here.
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/create.html'
     model = ProjectModel
     form_class = ProjectForm
@@ -31,7 +32,7 @@ class ProjectCreateView(CreateView):
                         )
                     )
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'projects/edit.html'
     model = ProjectModel
     form_class = ProjectForm
@@ -49,13 +50,13 @@ class ProjectUpdateView(UpdateView):
         else:
             return self.form_invalid(form)
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'projects/delete.html'
     model = ProjectModel
     context_object_name = 'project'
     success_url = reverse_lazy('projects:list')
 
-class ProjectsListView(ListView):
+class ProjectsListView(LoginRequiredMixin, ListView):
     template_name = 'projects/list.html'
     queryset = ProjectModel.objects.all()
     context_object_name = 'projects'
@@ -73,7 +74,7 @@ class ProjectsListView(ListView):
 
         return queryset.filter(user=self.request.user)
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin, DetailView):
     template_name = 'projects/detail.html'
     queryset = ProjectModel.objects.all()
     context_object_name = 'project'
@@ -87,12 +88,12 @@ class ProjectDetailView(DetailView):
             date_created__day=self.kwargs.get('day')
         )
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/tasks/create.html'
     model = TaskModel
     form_class = TaskForm
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/tasks/create.html'
     model = TaskModel
     form_class = TaskForm
@@ -125,7 +126,7 @@ class TaskCreateView(CreateView):
                         )
                     )
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'projects/tasks/edit.html'
     model = TaskModel
     form_class = TaskForm
@@ -145,7 +146,7 @@ class TaskUpdateView(UpdateView):
         project = self.object.project
         return project.get_absolute_url()
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'projects/tasks/delete.html'
     model = TaskModel
     context_object_name = 'task'
@@ -157,7 +158,7 @@ class TaskDeleteView(DeleteView):
         return project.get_absolute_url()
 
 
-class MarkTaskCompleteView(View):
+class MarkTaskCompleteView(LoginRequiredMixin, View):
     def post(self, request, slug, year, month, day):
         task = get_object_or_404(TaskModel, slug=slug, date_created__year=year, date_created__month=month, date_created__day=day)
         if task.status == TaskModel.COMPLETED:

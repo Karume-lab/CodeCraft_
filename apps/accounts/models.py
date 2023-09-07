@@ -6,6 +6,8 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    first_name = models.CharField(_("first name"), max_length=50, null=True)
+    last_name = models.CharField(_("surname"), max_length=50, null=True)
     username = models.CharField(_("username"), max_length=50)
     pfp = models.ImageField(_("profile picture"), upload_to='users/', height_field=None, width_field=None, max_length=None, null=True, blank=True)
     projects = models.ForeignKey("projects.ProjectModel", related_name='users', verbose_name=_("Projects"), on_delete=models.CASCADE, null=True, blank=True)

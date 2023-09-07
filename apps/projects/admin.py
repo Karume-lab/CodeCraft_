@@ -10,6 +10,7 @@ class ProjectModelAdmin(admin.ModelAdmin):
 		'date_created',
 		'date_due',
         'progress',
+        'priority',
 		'description',
 		'status',
 		'image',
