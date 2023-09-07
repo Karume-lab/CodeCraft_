@@ -52,7 +52,7 @@ class SearchTemplateView(LoginRequiredMixin, TemplateView):
                                                                 Q(description__icontains=search_query),
                                                                 user=self.request.user
                                                             )
-        context['task_results'] = TaskModel.objects.filter(description__icontains=search_query, user=self.request.user)
+        context['task_results'] = TaskModel.objects.filter(description__icontains=search_query)
         return context
 
 @csrf_exempt
@@ -95,7 +95,7 @@ class ImportantProjectsListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(importance='1', user=self.request.user)
+        return queryset.filter(priority='1', user=self.request.user)
 
 class MissedDealineProjectsListView(LoginRequiredMixin, ListView):
     model = ProjectModel
