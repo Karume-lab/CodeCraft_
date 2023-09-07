@@ -22,6 +22,15 @@ class ProjectModel(models.Model):
 		(DRAFT, 'Draft'),
 	]
     status = models.CharField(choices=STATUS_CHOICES, max_length=1, default=PENDING)
+    HIGH = '1'
+    MEDIUM = '2'
+    LOW = '3'
+    PRIORITY_CHOICES = [
+        (HIGH, 'High'),
+        (MEDIUM, 'Medium'),
+        (LOW, 'Low'),
+    ]
+    priority = models.CharField(choices=PRIORITY_CHOICES, max_length=1, default=MEDIUM, null=True)
     image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True, default='projects/banner.jpg')
     slug = models.SlugField(db_index=True)
 

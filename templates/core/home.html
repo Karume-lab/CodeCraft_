@@ -23,9 +23,10 @@
                                 Sort
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">A-Z</a>
-                                <a class="dropdown-item" href="#">By Date</a>
-                                <a class="dropdown-item" href="#">Urgency</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
                             </div>
                         </div>
                     </h6>

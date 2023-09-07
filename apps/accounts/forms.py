@@ -18,15 +18,16 @@ class CustomUserChangeForm(UserChangeForm):
 class CustomLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
         super(CustomLoginForm, self).__init__(*args, **kwargs)
-        self.fields['login'].widget = forms.EmailInput(
+        self.fields['login'].widget = forms.TextInput(
             attrs={
-                'type': 'email',
+                'type': 'text',
                 'class': 'form-control form-control-lg',
-                'id': 'emailAddress',
+                'id': 'username_emailAddress',
                 'name': 'login',
-                'placeholder': 'Email Address'
+                'placeholder': 'Username or Email Address'
             }
         )
+
         self.fields['password'].widget = forms.PasswordInput(
             attrs={
                 'type': 'password',
@@ -36,6 +37,7 @@ class CustomLoginForm(LoginForm):
                 'placeholder': 'Password'
             }
         )
+
         self.fields['login'].label = ''
         self.fields['password'].label = ''
 
@@ -46,7 +48,7 @@ class CustomSignupForm(SignupForm):
             attrs={
                 'type': 'text',
                 'class': 'form-control form-control-lg',
-                'id' : 'username',
+                'id': 'username',
                 'name': 'username',
                 'placeholder': 'Username'
             }
@@ -55,7 +57,7 @@ class CustomSignupForm(SignupForm):
             attrs={
                 'type': 'email',
                 'class': 'form-control form-control-lg',
-                'id' : 'emailAddress',
+                'id': 'emailAddress',
                 'name': 'email',
                 'placeholder': 'Email Address'
             }
@@ -80,3 +82,33 @@ class CustomSignupForm(SignupForm):
                 'placeholder': 'Password'
             }
         )
+
+        self.fields['first_name'].widget = forms.TextInput(
+            attrs={
+                'type': 'text',
+                'class': 'form-control form-control-lg',
+                'id': 'first_name',
+                'name': 'first_name',
+                'placeholder': 'First Name'
+            }
+        )
+
+        self.fields['last_name'].widget = forms.TextInput(
+            attrs={
+                'type': 'text',
+                'class': 'form-control form-control-lg',
+                'id': 'last_name',
+                'name': 'last_name',
+                'placeholder': 'Last Name'
+            }
+        )
+        self.fields['username'].label = ''
+        self.fields['email'].label = ''
+        self.fields['password1'].label = ''
+        self.fields['password2'].label = ''
+        self.fields['first_name'].label = ''
+        self.fields['last_name'].label = ''
+
+
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
