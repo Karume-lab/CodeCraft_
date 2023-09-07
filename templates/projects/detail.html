@@ -3,7 +3,9 @@
 {% block title %}{{ project.title }}{% endblock title %}
 
 {% block content %}
-    <img src="{{project.image.url}}" alt="">
+    {% if project.image %}
+        <img src="{{project.image.url}}" alt="">
+    {% endif %}
     <p>Title: {{ project.title }}</p>
     <p>Description: {{ project.description }}</p>
     <ul class="list-group">
