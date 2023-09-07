@@ -52,7 +52,7 @@ class SearchTemplateView(LoginRequiredMixin, TemplateView):
                                                                 Q(description__icontains=search_query),
                                                                 user=self.request.user
                                                             )
-        context['task_results'] = TaskModel.objects.filter(description__icontains=search_query, user=self.request.user)
+        context['task_results'] = TaskModel.objects.filter(description__icontains=search_query)
         return context
 
 @csrf_exempt
