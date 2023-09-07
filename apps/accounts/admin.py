@@ -12,6 +12,7 @@ class CustomUserAdmin(UserAdmin):
         'email',
         'first_name',
         'last_name',
+        'pfp',
         'username',
         'projects',
         'is_staff',
@@ -23,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
         'is_active',
     )
     fieldsets = (
-        (None, {'fields': ('username', 'first_name', 'last_name', 'projects', 'email', 'password')}),
+        (None, {'fields': ('username', 'first_name', 'last_name', 'pfp', 'projects', 'email', 'password')}),
         (
             'Permissions',
             {'fields': ('is_staff', 'is_active', 'groups', 'user_permissions')},
@@ -38,6 +39,7 @@ class CustomUserAdmin(UserAdmin):
                     'username',
                     'first_name',
                     'last_name',
+                    'pfp',
                     'email',
                     'projects',
                     'password1',
