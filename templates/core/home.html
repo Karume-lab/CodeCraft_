@@ -16,30 +16,19 @@
 
             <!-- Project Card Example -->
             <div class="card shadow mb-3">
-                <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS </h6>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort
-                        </button>                            
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Alphabetically</a>
-                            <a class="dropdown-item" href="#">By Date</a>
-                            <a class="dropdown-item" href="#">Urgency</a>
-
                 <div class="card-header py-3">
-                    <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS</h6>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
-                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
-                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
-                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
-                            </div>
-
+                    </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
+                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
+                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
+                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
                         </div>
                     </div>
                 </div>
@@ -57,38 +46,39 @@
         </div>
     </div>
 
+
     {% for project in today_projects %}
         {% if project.date_due.date == timezone.now.date %}
             <a href="{{ project.get_absolute_url }}">
                 <div class="col-lg-6">
-                <div class="card_container">
-                    <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                        <div class="col">
-                            <div>
-                            <h4 class="card-title">{{ project }}</h4>
-                            <time>{{ project.date_due }}</time>
+                    <div class="card_container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <h4 class="card-title">{{ project }}</h4>
+                                            <time>{{ project.date_due }}</time>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ project.progress }}%" aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% for task in project.tasks.all %}
+                                <ul class="list-group list-group-flush ">
+                                <li class="list-group-item">{{ task.description }}</li>
+                                </ul>
+                            {% endfor %}
+                            <div class="card-body">
+                                <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
+                                <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="progress mb-4">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ project.progress }}%" aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        </div>
                     </div>
-                    {% for task in project.tasks.all %}
-                        <ul class="list-group list-group-flush ">
-                        <li class="list-group-item">{{ task.description }}</li>
-                        </ul>
-                    {% endfor %}
-                    <div class="card-body">
-                        <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
-                        <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </a>
         {% endif %}
