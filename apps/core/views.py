@@ -1,4 +1,5 @@
 from typing import Any, Dict, Optional
+from django.db.models.functions import Lower
 import random
 from datetime import date
 from django.shortcuts import render
@@ -27,7 +28,7 @@ class HomeListView(LoginRequiredMixin, ListView):
         queryset = super().get_queryset().filter(user=self.request.user)
 
         if sort == 'a-z':
-            queryset = queryset.order_by('title')
+            queryset = queryset.order_by(Lower('title'))
         elif sort == 'date':
             queryset = queryset.order_by('date_created')
         elif sort == 'progress':
