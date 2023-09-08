@@ -8,6 +8,7 @@ class ProjectForm(forms.ModelForm):
             'title',
             'date_due',
             'description',
+            'priority',
             'image',
 		]
 

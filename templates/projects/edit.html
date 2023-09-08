@@ -3,7 +3,7 @@
 
 {% block title %}Edit{% endblock title %}
 {% block content %}
-	<form method="post">
+	<form method="post" enctype='multipart/form-data'>
 		{% csrf_token %}
 		{{form|crispy}}
 		<a href="{% url 'projects:list' %}"><button class="btn btn-danger">Cancel</button></a>

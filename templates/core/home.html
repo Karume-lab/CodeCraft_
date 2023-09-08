@@ -26,6 +26,20 @@
                             <a class="dropdown-item" href="#">Alphabetically</a>
                             <a class="dropdown-item" href="#">By Date</a>
                             <a class="dropdown-item" href="#">Urgency</a>
+
+                <div class="card-header py-3">
+                    <h6 class="m-0 mt-1 font-weight-bold text-primary">PROJECTS
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
