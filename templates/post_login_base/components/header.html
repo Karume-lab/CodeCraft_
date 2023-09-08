@@ -84,12 +84,16 @@
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.email}}</span>
-				<img class="img-profile rounded-circle"
-					src="{% static 'home/img/undraw_profile.svg' %}">
+                {% if user.pfp %}
+                    <img class="img-profile rounded-circle"
+                        src="{{user.pfp.url}}">
+                {% else %}
+                    <img class="img-profile rounded-circle"
+                        src="{% static 'home/img/undraw_profile.svg' %}">
+                {% endif %}
 			</a>
 			<!-- Dropdown - User Information -->
-			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-				aria-labelledby="userDropdown">
+			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <div class="wipe-cinematic-in container-profile justify-content-center align-items-center">   
                     <div class="card-profile">
                         <div class="upper-profile">
@@ -97,27 +101,31 @@
                         </div>
                         <div class="user-profile text-center">
                             <div class="profile">
-                            <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="80"> 
+                                {% if user.pfp %}
+                                    <img class="rounded-circle" width="80" src="{{user.pfp.url}}">
+                                {% else %}
+                                    <img class="rounded-circle" width="80" src="{% static 'home/img/undraw_profile.svg' %}">
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <h4 class="mb-0">{{user.username}}</h4>
-                        <span class="text-muted d-block mb-2"> </span>
-						<a href="{% url 'profile' %}" class="text-decoration-none">
-							<button class="btn btn-success btn-sm">
-								<i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400"></i>
-								Profile
-							</button>
-						</a>
-						<a class="text-decoration-none" data-toggle="modal" data-target="#logoutModal">
-							<button type="button" class="btn btn-danger btn-sm" >
-								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-								Logout
-							</button>
-						</a>
-                        
-                        <span class="text-muted d-block mb-2"> </span>
-                        <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                        <div class="mt-5 text-center">
+                            <h4 class="mb-0">{{user.username}}</h4>
+                            <span class="text-muted d-block mb-2"> </span>
+                            <a href="{% url 'profile' %}" class="text-decoration-none">
+                                <button class="btn btn-success btn-sm">
+                                    <i class="fas fa-user-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </button>
+                            </a>
+                            <a class="text-decoration-none" data-toggle="modal" data-target="#logoutModal">
+                                <button type="button" class="btn btn-danger btn-sm" >
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </button>
+                            </a>
+                            
+                            <span class="text-muted d-block mb-2"> </span>
+                            <div class="d-flex justify-content-between align-items-center mt-4 px-4">
                                 <div>
                                     <h6 class="mb-0">Projects</h6>
                                     <span>8,797</span>
@@ -126,13 +134,12 @@
                                     <h6 class="mb-0">Completed</h6>
                                     <span>142</span>
                                 </div>
-
                                 <div>
                                     <h6 class="mb-0">Incomplete</h6>
                                     <span>129</span>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
 			</div>

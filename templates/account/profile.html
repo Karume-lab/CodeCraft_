@@ -23,10 +23,10 @@
                     <div class="panel">
                         <div class="user-heading round">
                             <a href="#">
-                                {% if user.profile_picture %}
-                                    <img src="{{user.profile_picture}}" alt="">
+                                {% if user.pfp %}
+                                    <img src="{{user.pfp.url}}" alt="">
                                 {% else %}
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                                    <img src="{% static 'home/img/undraw_profile.svg' %}" alt="">
                                 {% endif %}
                             </a>
                             <h1>{{user.username}}</h1>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div>
-                        {% for project in projects %}
+                        {% for project in projects.url %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="panel">
@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="bio-desk">
 
-                                                <h4 class="red">{{ project.title }}</h4>
+                                                <h4 class="red">{{ project.title}}</h4>
                                                 <p>Started : 15 July</p>
                                                 <p>Deadline : 15 August</p>
                                                 
