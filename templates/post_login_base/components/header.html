@@ -109,12 +109,13 @@
 								Profile
 							</button>
 						</a>
-						<a href="{% url 'account_logout' %}" class="text-decoration-none">
-							<button class="btn btn-danger btn-sm">
+						<a class="text-decoration-none" data-toggle="modal" data-target="#logoutModal">
+							<button type="button" class="btn btn-danger btn-sm" >
 								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 								Logout
 							</button>
 						</a>
+                        
                         <span class="text-muted d-block mb-2"> </span>
                         <div class="d-flex justify-content-between align-items-center mt-4 px-4">
                                 <div>
@@ -136,6 +137,7 @@
                 </div>
 			</div>
 		</li>
+        {% include 'account/logout_modal.html' %}
 
 	</ul>
 

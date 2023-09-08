@@ -1,0 +1,27 @@
+<!-- Logout Modal-->
+<div class="modal modal-overlay fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="customModalLabel"aria-hidden="true">
+    <div class="modal-dialog" style="background-color: #333;">
+        <div class="modal-content" style="background-color: #555; color: aliceblue;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    <strong>Development Session Complete</strong>
+                </h5>
+            </div>
+            <div class="modal-body ">
+                Bug squashed, tests passed
+                Sign out and push those changes live!
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <form method="post" action="{% url 'account_logout' %}?next={% url 'core:index' %}">
+                    {% load i18n %}
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <button class="btn btn-primary" type="submit">{% trans 'Sign Out' %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

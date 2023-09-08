@@ -1,120 +1,32 @@
-<div id="feedbackModal" class="modal" tabindex="11" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true">
+<div id="feedbackModal" class="modal" tabindex="11" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog bounceLeftIn">
-        <div class="modal-content" style="background-color: lightslategrey;">
-            <div class="modal-header">
-                <h4 class="flex modal-title" style="color: black;">
-                    Feedback
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body" style="background-color: lightslategrey;">
-                <div class="formbold-main-wrapper" style="background-color: lightslategrey;">
-                    <div class="formbold-form-wrapper" style="background-color: lightslategrey;">
-                        <form id="contactForm">
-                            <div class="formbold-steps">
-                                <ul>
-                                    <li class="formbold-step-menu1 active">
-                                    <span>1</span>
-                                    Details
-                                    </li>
-                                    <li class="formbold-step-menu2">
-                                    <span>2</span>
-                                    Message
-                                    </li>
-                                    <li class="formbold-step-menu3">
-                                    <span>3</span>
-                                    Confirm
-                                    </li>
-                                </ul>
-                            </div>
-            
-                            <div class="formbold-form-step-1 active">
-                                <div class="formbold-input-flex">
-                                    <div>
-                                        <label for="firstname" class="formbold-form-label"> First name </label>
-                                        <input
-                                            type="text"
-                                            name="firstname"
-                                            placeholder="Andrio"
-                                            id="name"
-                                            class="formbold-form-input"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label for="lastname" class="formbold-form-label"> Last name </label>
-                                        <input
-                                            type="text"
-                                            name="lastname"
-                                            placeholder="Dolee"
-                                            id="lastname"
-                                            class="formbold-form-input"
-                                        />
-                                    </div>
-                                </div>
-                        
-                                <div class="formbold-input-flex">
-                                    <div>
-                                        <label for="dob" class="formbold-form-label"> Date of Birth </label>
-                                        <input 
-                                            type="date" 
-                                            name="dob" 
-                                            id="dob" 
-                                            class="formbold-form-input"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label for="email" class="formbold-form-label"> Email Address </label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            placeholder="example@mail.com"
-                                            id="email"
-                                            class="formbold-form-input"
-                                        />
-                                    </div>
-                                </div>
-                        
-                                <div>
-                                    <label for="address" class="formbold-form-label"> Address </label>
-                                    <input
-                                        type="text"
-                                        name="address"
-                                        id="subject"
-                                        placeholder="Flat 4, 24 Castle Street, Perth, PH1 3JY"
-                                        class="formbold-form-input"
-                                    />
-                                </div>
-                            </div>
-                
-                            <div class="formbold-form-step-2">
-                                <div>
-                                    <label for="message" class="formbold-form-label"> Message </label>
-                                    <textarea
-                                        rows="6"
-                                        name="message"
-                                        id="description"
-                                        placeholder="Type your message"
-                                        class="formbold-form-input"
-                                    ></textarea>
-                                </div>
-                            </div>
-                
-                            <div class="formbold-form-step-3">
-                                <div class="formbold-form-confirm">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                                    </p>
-                                </div>
-                            </div>
-                
-                            <div class="formbold-form-btn-wrapper">
-                                <button class="bg-primary formbold-back-btn">Back</button>
-                                <button class="bg-primary formbold-back-btn step-three-back">Back</button>
-                                <button class="bg-primary formbold-btn">Next Step</button>
-                            </div>
-                        </form>
+        <div class="">
+            <div class="">
+                <small>Enter message (optional) and click button "Send"</small>
+                <div class="wrapper centered">
+                  <article class="letter">
+                    <div class="side">
+                      <h1>Contact us</h1>
+                      <p>
+                        <textarea placeholder="Your message"></textarea>
+                      </p>
                     </div>
+                    <div class="side">
+                      <p>
+                        <input type="text" placeholder="Your name" >
+                      </p>
+                      <p>
+                        <input type="email" placeholder="Your email" >
+                      </p>
+                      <p>
+                        <button id="sendLetter">Send</button>
+                      </p>
+                    </div>
+                  </article>
+                  <div class="envelope front"></div>
+                  <div class="envelope back"></div>
                 </div>
+                <p class="result-message centered">Thank you for your message</p>
             </div>
         </div>
     </div>
