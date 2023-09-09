@@ -1,6 +1,3 @@
-{% load static %}
-{% load crispy_forms_tags %}
-
 <div tabindex="11" role="dialog">
     <div class="modal-content" style="background-color: lightslategrey;">
         <div class="modal-header">
@@ -43,3 +40,6 @@
         </div>
     </div>
 </div>
+
+
+href="{% url 'edit-profile' user.email %}"
