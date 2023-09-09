@@ -9,11 +9,16 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ('email',)
 
-
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
-        fields = ('email',)
+        fields = (
+            'first_name',
+            'last_name',
+            'email',
+            'username',
+            'pfp',
+        )
 
 class CustomLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
