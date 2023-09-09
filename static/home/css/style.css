@@ -1,47 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    background-color: #545454;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+}
+
 /* Initially hide the content */
 .hidden-content {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Apply this rule when the hidden-content class is removed */
 body:not(.hidden-content) {
     opacity: 1;
     pointer-events: auto;
+}
+
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
 }
 
 .black-accordion {
     background-color: black !important;
     color: white;
 }
+
 .grey-accordion {
     background-color: #26282b !important;
     color: white;
 }
 
 .dark,
-.dark *:not(.dropdown-item,.accordion *,a *) {
-    background: #080705;
+.dark *:not(.dropdown-item, .accordion *, a *) {
+    background: black;
     /* color: white; */
 }
 
 .night,
 .night *:not(.dropdown-item, a *, .accordion *) {
-    background: #1A1A1A;
+    background: #26282b;
     /* background-color: #26282b; */
     /* color: white; */
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
-
-body{
-    background-color: #545454;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-}
-/* .container-profile {
-    /* height: 5vh; */
-/* } */ 
 
 .card-profile {
     width: 380px;
@@ -99,4 +100,8 @@ body{
 
 .stats-profile span {
     font-size: 29px;
+}
+
+.project-background {
+    background: rgba(0, 0, 0, 0.5) !important;
 }

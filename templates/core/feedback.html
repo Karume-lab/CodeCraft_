@@ -1,34 +1,30 @@
-<div id="feedbackModal" class="modal" tabindex="11" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+<div id="feedbackModal" class="modal body-feedback" tabindex="11" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog bounceLeftIn">
-        <div class="">
-            <div class="">
-                <small>Enter message (optional) and click button "Send"</small>
-                <div class="wrapper centered">
-                  <article class="letter">
+        <div class="modal-content">
+            <div class="wrapper wrapper-feedback centered-feedback">
+                <article class="letter">
                     <div class="side">
-                      <h1>Contact us</h1>
-                      <p>
-                        <textarea placeholder="Your message"></textarea>
-                      </p>
+                        <h1 class="h1-feedback">Raise Dev Concern</h1>
+                        <p class="p-feedback">
+                            <textarea id="messageText" class="textarea-feedback" placeholder="Your Feedback" required></textarea>
+                        </p>
                     </div>
                     <div class="side">
-                      <p>
-                        <input type="text" placeholder="Your name" >
-                      </p>
-                      <p>
-                        <input type="email" placeholder="Your email" >
-                      </p>
-                      <p>
-                        <button id="sendLetter">Send</button>
-                      </p>
+                        <p class="p-feedback">
+                            <input id="feedbackName" class="input-feedback" type="text" placeholder="Firstname Lastname" required >
+                        </p>
+                        <p class="p-feedback">
+                            <input id="feedbackEmail" class="input-feedback" type="email" placeholder="example@email.com" required>
+                        </p>
+                        <p class="p-feedback">
+                            <button class="button-feedback" id="sendLetter">Send</button>
+                        </p>
                     </div>
-                  </article>
-                  <div class="envelope front"></div>
-                  <div class="envelope back"></div>
-                </div>
-                <p class="result-message centered">Thank you for your message</p>
+                </article>
+                <div class="envelope front"></div>
+                <div class="envelope back"></div>
             </div>
+            <p class="p-feedback result-message centered-feedback" style="color: aqua;">Thank you for your feedback</p>
         </div>
     </div>
 </div>
-
