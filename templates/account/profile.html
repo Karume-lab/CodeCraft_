@@ -32,30 +32,22 @@
                             <h1>{{user.username}}</h1>
                             <p>{{user.email}}</p>
                         </div>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="nav-item" style="cursor: pointer;">
-                                <a class="nav-link collapsed" id="#editProfileModal" data-toggle="modal" data-target="#editProfileModal">
-                                    <i class="fa fa-edit"></i>
-                                    <span>Edit Profile</span>
-                                </a>
-                                {% include 'account/editProfile.html' %}
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">
-                                    <i class="fa fa-folder-open"></i>
-                                    <span>Projects</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link collapsed" href="{% url 'edit-profile' user.email %}">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit Profile</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="profile-info col-md-9">
                     <div class="panel">
-                        <div class="bio-graph-heading">
-                            This page is still a work in progress and will be updated soon.🥲🥲🥲
+                        <div class="bio-graph-heading d-flex flex-column">
+                            <span>TOTAL NUMBER OF PROJECTS: {{total_projects.count}}</span>
+                            <span>COMPLETED: {{complete_projects.count}}</span>
+                            <span>INCOMPLETE: {{incomplete_projects.count}}</span>
                         </div>
                         <div class="panel-body bio-graph-info">
-                            <h1>Bio Graph</h1>
                             <div class="row">
                                 <div class="bio-row">
                                     <p><span>First Name </span>: {{user.first_name}}</p>
@@ -73,36 +65,31 @@
                         </div>
                     </div>
                     <div>
-                        {% for project in projects.url %}
+                        <div class="container">
                             <div class="row">
-                                <div class="col-md-6">
+                                {% for project in total_projects %}
+                                <div class="col-md-4">
                                     <div class="panel">
                                         <div class="panel-body">
-                                            <div class="bio-chart">
-                                                <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                                            </div>
                                             <div class="bio-desk">
-
-                                                <h4 class="red">{{ project.title}}</h4>
-                                                <p>Started : 15 July</p>
-                                                <p>Deadline : 15 August</p>
-                                                
+                                                <h4 class="red">{{ project.title }}</h4>
+                                                <span>DEADLINE: {{project.date_due}}</span>
+                                                <span></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {% empty %}
+                                    <div>
+                                        None
+                                    </div>
+                                {% endfor %}
                             </div>
-                        {% empty %}
-                            <div class="col">
-                                None
-                            </div>
-                        {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
         {% include 'account/dependancies/js.html' %}
-
     </body>
 </html>

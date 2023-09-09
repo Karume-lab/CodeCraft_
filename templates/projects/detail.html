@@ -14,6 +14,8 @@
                 <div class="p-2 bg-transparent">
                     {{ project.description }}
                 </div>
+                <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-primary text-white"><i class="fas fa-pen"></i></a>
+                <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-danger text-white"><i class="fas fa-trash-alt"></i></a>
             </div>
         
             <div class="bg-transparent">
