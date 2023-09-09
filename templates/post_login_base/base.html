@@ -1,51 +1,54 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>CodeCraft | {% block title %} {% endblock title %}</title>
+        <title>CodeCraft | {% block title %} {% endblock title %}</title>
 
-    <!--Favicon-->
-    <link rel="icon" type="image/x-icon" href="{% static 'landing-page/img/logo.png' %}"/>
-    {% include 'post_login_base/dependancies/css.html' %}
+        <!--Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'landing-page/img/logo.png' %}"/>
+        {% include 'post_login_base/dependancies/css.html' %}
 
-  </head>
-  <body class="hidden-content" id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-      <!-- Sidebar -->
-      {% include 'post_login_base/components/sidebar.html' %}
-      <!-- End of Sidebar -->
-      <div id="content-wrapper" class="d-flex flex-column">
-        <!-- Main Content -->
-        <div id="content">
+    </head>
+    <body class="hidden-content" id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            <!-- Sidebar -->
+            {% include 'post_login_base/components/sidebar.html' %}
+            <!-- End of Sidebar -->
+            
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Topbar -->
+                {% include 'post_login_base/components/header.html' %}
+                <!-- End of Topbar -->
 
-          <!-- Topbar -->
-          {% include 'post_login_base/components/header.html' %}
-          <!-- End of Topbar -->
+                <!-- Main Content -->
+                <div id="content">
 
-          <!-- Begin Page Content -->
-          {% block content %}{% endblock content %}
-          <!-- End Page Content -->
-          
+
+                    <!-- Begin Page Content -->
+                    {% block content %}{% endblock content %}
+                    <!-- End Page Content -->
+                
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                {% include 'post_login_base/components/footer.html' %}
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
+        
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Page Wrapper -->
 
-        <!-- Footer -->
-        {% include 'post_login_base/components/footer.html' %}
-        <!-- End of Footer -->
-      </div>
-      <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
-
-    {% include 'post_login_base/scroll2top.html' %}
-    {% include 'post_login_base/dependancies/js.html' %}
-  </body>
+        {% include 'post_login_base/scroll2top.html' %}
+        {% include 'post_login_base/dependancies/js.html' %}
+    </body>
 </html>

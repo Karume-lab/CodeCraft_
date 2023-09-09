@@ -32,13 +32,13 @@ body:not(.hidden-content) {
 }
 
 .dark,
-.dark *:not(.dropdown-item, .accordion *, a *) {
+.dark *:not(.dropdown-item, .accordion *, a *, .card *) {
     background: black;
     /* color: white; */
 }
 
 .night,
-.night *:not(.dropdown-item, a *, .accordion *) {
+.night *:not(.dropdown-item, a *, .accordion *, .card *) {
     background: #26282b;
     /* background-color: #26282b; */
     /* color: white; */
@@ -102,6 +102,6 @@ body:not(.hidden-content) {
     font-size: 29px;
 }
 
-.project-background {
+.bg-prj {
     background: rgba(0, 0, 0, 0.5) !important;
 }
