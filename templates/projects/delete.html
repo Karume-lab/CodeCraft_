@@ -7,7 +7,7 @@
 		{% csrf_token %}
 		<h1>Are you sure you want to delete <em>{{project.title}}</em> ?</h1>
 		<p>Once done, this action cannot be reversed.</p>
-		<a href="{% url 'projects:list' %}"><button class="btn btn-danger">Cancel</button></a>
+		<a href="{{project.get_absolute_url}}" class="btn btn-danger">Cancel</a>
 		<button class="btn btn-success" type="submit">Yes</button>
 	</form>
 

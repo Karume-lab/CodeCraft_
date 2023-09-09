@@ -130,6 +130,7 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'projects/tasks/edit.html'
     model = TaskModel
     form_class = TaskForm
+    context_object_name = 'task'
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
