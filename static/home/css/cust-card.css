@@ -6,7 +6,7 @@
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
-  }
+}
 
 .headings{
     font-size: large;
@@ -21,7 +21,7 @@
 
 .card.cust-card-img{
     border-radius: 0%;; 
-    background-size: contain;
+    background-size: cover;
     background-position:right;
     background-repeat: no-repeat;
 }

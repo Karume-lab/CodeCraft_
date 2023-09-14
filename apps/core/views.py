@@ -90,7 +90,7 @@ class RandomizeDetailView(DetailView):
         return random_project
 
 class ImportantProjectsListView(LoginRequiredMixin, ListView):
-    template_name = 'projects/list.html'
+    template_name = 'core/important.html'
     queryset = ProjectModel.objects.all()
     context_object_name = 'projects'
 
