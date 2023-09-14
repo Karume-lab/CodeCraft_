@@ -13,7 +13,7 @@ class MyProfileTamplateView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        projects = ProjectModel.objects.all()
+        projects = ProjectModel.objects.filter(user=self.request.user)
         context["total_projects"] = projects
         context["complete_projects"] = projects.filter(status='c')
         context["incomplete_projects"] = projects.exclude(status='c')

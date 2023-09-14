@@ -10,10 +10,15 @@
                 <div class="card cust-card-link cust-card-img" style="background-image: url('{{ project.image.url }}') !important;">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <div>
-                                <a href="{{ project.get_absolute_url }}" class="card-link">
-                                    <h4 class="card-title">{{ project.title }}</h4>
+                            <div class="p-2 rounded rounded-5" style="background:rgb(0, 0, 0, 0.4);">
+                                <a href="{{ project.get_absolute_url }}" class="card-link text-light">
+                                    <h4 class="card-title display-4">{{ project.title }}</h4>
                                 </a>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <label class="headings text-light">
+                                        Due Date <time class="sub-headings">{{ project.date_due }}</time>
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="text-right">
@@ -33,11 +38,6 @@
                                 <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-primary text-white"><i class="fas fa-pen"></i></a>
                                 <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-danger text-white"><i class="fas fa-trash-alt"></i></a>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between mt-3">
-                            <label class="headings">
-                                Due Date <time class="sub-headings">{{ project.date_due }}</time>
-                            </label>
                         </div>
                         <div class="progress mt-1 w-100">
                             <div class="progress-bar"

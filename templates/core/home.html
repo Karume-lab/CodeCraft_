@@ -23,12 +23,12 @@
                             <button class="btn btn-secondary dropdown-toggle mt-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort
                             </button>
-                    </div>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
-                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
-                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
-                            <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=a-z">A-Z</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=date">Date Created</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=priority">Priority</a>
+                                <a class="dropdown-item" href="{% url 'core:home' %}?sort_by=progress">Progress</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
             </a>
         {% endif %}
     {% empty %}
-        None
+        <span>There are no project due today!</span>
     {% endfor %}
 </div>
 {% endblock content %}

@@ -1,11 +1,12 @@
 {% extends 'post_login_base/base.html' %}
+{% load static %}
 {% load custom_filters %}
 
 {% block title %}Projects{% endblock title %}
 
 {% block content %}
-    <div class="row m-2">
-        {% for project in deadline_projects %}
+    {% for project in deadline_projects %}
+        <div class="row m-2">
             <div class="col-lg-4 mb-4">
                 <div class="card cust-card-link cust-card-img" style="background-image: url('{{ project.image.url }}') !important;">
                     <div class="card-body">
@@ -49,10 +50,10 @@
                     </div>
                 </div>
             </div>
-        {% empty %}
-            <div class="col">
-                None
-            </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% empty %}
+        <div class="card cust-card-large-img">
+            <img src="{% static 'home/img/nothing.png' %}" alt="">
+        </div>
+    {% endfor %}
 {% endblock content %}
