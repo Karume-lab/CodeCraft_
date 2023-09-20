@@ -9,7 +9,6 @@ class ProjectForm(forms.ModelForm):
             'date_due',
             'description',
             'priority',
-            'image',
 		]
 
 class TaskForm(forms.ModelForm):

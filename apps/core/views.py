@@ -92,7 +92,7 @@ class RandomizeDetailView(DetailView):
 class ImportantProjectsListView(LoginRequiredMixin, ListView):
     template_name = 'core/important.html'
     queryset = ProjectModel.objects.all()
-    context_object_name = 'projects'
+    context_object_name = 'important_projects'
 
     def get_queryset(self):
         queryset = super().get_queryset()

@@ -31,7 +31,7 @@ class ProjectModel(models.Model):
         (LOW, 'Low'),
     ]
     priority = models.CharField(choices=PRIORITY_CHOICES, max_length=1, default=MEDIUM, null=True)
-    image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True, default='projects/banner.jpg')
+    image = models.ImageField(upload_to='projects/', height_field=None, width_field=None, null=True, blank=True)
     slug = models.SlugField(db_index=True)
 
     def update_progress(self):

@@ -2,13 +2,13 @@
 {% load static %}
 {% load tz %}
 {% load custom_filters %}
-{% block title %}Home{% endblock title %}
+{% block title %}Important{% endblock title %}
 
 {% block content %}
-    {% for projects in important_projects %}
-        <div class="row m-2">
+    <div class="row m-2">
+        {% for project in important_projects %}
             <div class="col-lg-4 mb-4">
-                <div class="card cust-card-link cust-card-img" style="background-image: url('{{ project.image.url }}') !important;">
+                <div class="card cust-card-large-img{% if not project.image %} bg-dark h-100{% endif %}" {% if project.image %}style="background-image: url({{ project.image.url }});" {% endif %}>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
@@ -20,9 +20,9 @@
                             <div class="text-right">
                                 <button class="w-25 btn btn-success dropdown-toggle text-decoration-none ml-2" type="button" id="tasksDropdown-{{ project.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-tasks"></i>
-                                    <sup for="number-of-tasks">{{project.tasks.count}}</sup>
+                                    <sup for="number-of-tasks">{{ project.tasks.count }}</sup>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(0, 0, 0,0.8);" aria-labelledby="tasksDropdown-{{ project.id }}">
+                                <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(0, 0, 0, 0.8);" aria-labelledby="tasksDropdown-{{ project.id }}">
                                     {% if project.tasks.exists %}
                                         {% for task in project.tasks.all %}
                                             <p class="m-2">{{ task.description }}</p>
@@ -50,10 +50,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    {% empty %}
-        <div class="card cust-card-large-img">
-            <img src="{% static 'home/img/nothing.png' %}" alt="">
-        </div>
-    {% endfor %}
+        {% empty %}
+            <div class="card cust-card-large-img">
+                <img src="{% static 'home/img/nothing.png' %}" alt="">
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

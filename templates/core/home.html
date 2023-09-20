@@ -47,48 +47,60 @@
         </div>
     </div>
 
-
     {% for project in today_projects %}
         {% if project.date_due.date == timezone.now.date %}
-            <a href="{{ project.get_absolute_url }}">
-                <div class="col-lg-6">
-                    <div class="card_container">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <div>
-                                            <h4 class="card-title">{{ project }}</h4>
-                                            <time>{{ project.date_due }}</time>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress mb-4">
-                                            <div class="progress-bar"
-                                                role="progressbar"
-                                                style="width: {{project.progress}}%;  background-color: {{ project.progress|get_progress_color }}"
-                                                aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="row m-2">
+            {% endif %}
+            <div class="col-lg-4 mb-4">
+                <div class="card cust-card-large-img{% if not project.image %} bg-dark h-100{% endif %}" {% if project.image %}style="background-image: url({{ project.image.url }});" {% endif %}>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a href="{{ project.get_absolute_url }}" class="card-link">
+                                    <h4 class="card-title">{{ project.title }}</h4>
+                                </a>
                             </div>
-                            {% for task in project.tasks.all %}
-                                <ul class="list-group list-group-flush ">
-                                <li class="list-group-item">{{ task.description }}</li>
-                                </ul>
-                            {% endfor %}
-                            <div class="card-body">
-                                <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-primary">Edit</button></a>
-                                <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}"><button class="btn btn-danger">Delete</button></a>
+
+                            <div class="text-right">
+                                <button class="w-25 btn btn-success dropdown-toggle text-decoration-none ml-2" type="button" id="tasksDropdown-{{ project.id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-tasks"></i>
+                                    <sup for="number-of-tasks">{{ project.tasks.count }}</sup>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" style="background-color: rgb(0, 0, 0, 0.8);" aria-labelledby="tasksDropdown-{{ project.id }}">
+                                    {% if project.tasks.exists %}
+                                        {% for task in project.tasks.all %}
+                                            <p class="m-2">{{ task.description }}</p>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span class="dropdown-item">No tasks yet, would you like to <a href="{% url 'projects:create_task' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="text-decoration-none">add a task?</a></span>
+                                    {% endif %}
+                                </div>
+                                <a href="{% url 'projects:edit' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-primary text-white"><i class="fas fa-pen"></i></a>
+                                <a href="{% url 'projects:delete' project.slug project.date_created.year project.date_created.month project.date_created.day %}" class="btn btn-danger text-white"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <label class="headings">
+                                Due Date <time class="sub-headings">{{ project.date_due }}</time>
+                            </label>
+                        </div>
+                        <div class="progress mt-1 w-100">
+                            <div class="progress-bar"
+                                role="progressbar"
+                                style="width: {{ project.progress }}%; background-color: {{ project.progress|get_progress_color }}"
+                                aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div>
+            {% endif %}
         {% endif %}
     {% empty %}
-        <span>There are no project due today!</span>
+        <span>There are no projects due today!</span>
     {% endfor %}
 </div>
 {% endblock content %}
