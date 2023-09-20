@@ -9,8 +9,8 @@
     {% else %}
         <div class="card cust-card-large-img bg-dark">
     {% endif %}
-    <div class="bg-prj p-5 m-5 overflow-auto" style="max-width: 50%;">
-        <div class="progress mb-2 w-100">
+    <div class="bg-prj p-5 m-5">
+        <div class="progress mb-2">
             <div class="progress-bar"
             role="progressbar"
             style="width: {{ project.progress }}%; background-color: {{ project.progress|get_progress_color }}"
