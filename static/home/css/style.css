@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
-
 body {
     background-color: #545454;
-    font-family: "Poppins", sans-serif !important;
     font-weight: 300;
 }
 
@@ -49,9 +46,8 @@ body:not(.hidden-content) {
     border: none;
     border-radius: 15px;
     padding: 8px;
-    /* background-color: #fff; */
     position: relative;
-    height: 370px;
+    height: 100;
 }
 
 .upper-profile {

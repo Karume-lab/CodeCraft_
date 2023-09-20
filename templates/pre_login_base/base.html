@@ -11,7 +11,7 @@
     <title>CodeCraft | {% block title %} {% endblock title %}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'landing-page/img/logo.png' %}"/>
   </head>
-  <body>
+  <body style="overflow-x:hidden;">
     {% include 'pre_login_base/components/header.html' %}
     {% block body %} {% endblock body %}
     {% include 'pre_login_base/components/footer.html' %}

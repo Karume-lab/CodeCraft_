@@ -3,7 +3,7 @@
 
 {% block title %}Welcome{% endblock title %}
 {% block content %}
-RESULTS:
+
 {% for project in project_results %}
 	<div class="col-lg-6">
 		<div class="card_container">
@@ -26,7 +26,9 @@ RESULTS:
 		</div>
 	</div>
 {% empty %}
-	NO RESULTS
+	<div class="card cust-card-large-img">
+		<img src="{% static 'home/img/nothing.png' %}" alt="">
+	</div>
 {% endfor %}
 
 {% for task in task_results %}

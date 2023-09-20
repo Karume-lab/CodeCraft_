@@ -27,7 +27,7 @@
 			<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/Codecraft.jpeg' %}'); background-colour: black;"></div>
 			<div class="col-lg-6 order-lg-1 my-auto showcase-text" id="About">
 				<h2>CodeCraft</h2>
-				<p class="lead mb-0">
+				<p class="lead mb-0 text-dark">
                     Discover Seamless Task Management with CodeCraft.
                     Your tasks, beautifully organized and responsive across all devices - from your phone to your tablet and desktop. Welcome to a world where productivity meets elegance!
                 </p>
@@ -37,31 +37,33 @@
 			<div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/picture3.jpeg' %}')"></div>
 			<div class="col-lg-6 my-auto showcase-text">
 				<h2>Projects</h2>
-				<p class="lead mb-0">Revolutionize your project management as a programmer. Track, conquer, and code with precision. Embrace the power of organized programming today!"</p>
+				<p class="lead mb-0 text-dark">Revolutionize your project management as a programmer. Track, conquer, and code with precision. Embrace the power of organized programming today!"</p>
 			</div>
 		</div>
 		<div class="row g-0">
 			<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/picture2.jpeg' %}')"></div>
 			<div class="col-lg-6 order-lg-1 my-auto showcase-text">
 				<h2>Ease of Use</h2>
-				<p class="lead mb-0">Effortlessly add your content and images, and voilà - your progress is at your fingertips, fully responsive across devices. Embrace the ease of use and creative control as you embark on your organized journey!"</p>
+				<p class="lead mb-0 text-dark">Effortlessly add your content and images, and voilà - your progress is at your fingertips, fully responsive across devices. Embrace the ease of use and creative control as you embark on your organized journey!"</p>
 			</div>
 		</div>
         <div class="row g-0" id="services">
 			<div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'landing-page/img/notes.jpeg' %}')"></div>
 			<div class="col-lg-6 my-auto showcase-text">
 				<h2>Services</h2>
-				<p class="lead mb-0">Track your projects and their progress.
+				<p class="lead text-dark mb-0">
+                    Track your projects and their progress.
                     Organize projects into tasks and sub-tasks.
                     Set milestones and deadlines.Receive reminders and notifications for upcoming task deadlines.
                     Set custom notification preferences.Integrate with Git repositories for developers to link tasks with code changes.
-                    Automatically update task statuses based on code commits.!"</p>
+                    Automatically update task statuses based on code commits!
+                </p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="contact-info" style="background-image: url('{% static 'landing-page/img/background.jpg' %}');">
+{% comment %} <section class="contact-info" style="background-image: url('{% static 'landing-page/img/background.jpg' %}');">
     <div class="contactus" id="contact">
         <h2>Contact Us</h2>
         <p>Feel free to get in touch with us! We're here to assist you and answer any questions you might have.<br>
@@ -133,6 +135,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> {% endcomment %}
 
 {% endblock body %}
